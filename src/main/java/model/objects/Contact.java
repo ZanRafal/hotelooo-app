@@ -46,4 +46,15 @@ public class Contact {
     public void setRegon(String regon) {
         this.regon = regon;
     }
+
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "phoneNumber='" + phoneNumber + '\'' +
+                ", fax='" + fax + '\'' +
+                ", email='" + email + '\'' +
+                ", nip='" + nip + '\'' +
+                ", regon='" + regon + '\'' +
+                '}';
+    }
 }
