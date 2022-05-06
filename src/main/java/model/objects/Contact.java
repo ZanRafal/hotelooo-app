@@ -4,6 +4,8 @@ public class Contact {
     private String phoneNumber;
     private String fax;
     private String email;
+    private String nip;
+    private String regon;
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -27,5 +29,21 @@ public class Contact {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getNip() {
+        return nip;
+    }
+
+    public void setNip(String nip) {
+        this.nip = nip;
+    }
+
+    public String getRegon() {
+        return regon;
+    }
+
+    public void setRegon(String regon) {
+        this.regon = regon;
     }
 }
