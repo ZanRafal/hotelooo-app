@@ -1,6 +1,6 @@
 package model.objects;
 
-public class HotelFacilities {
+public class HotelFacilities extends AbstractBuilding{
     private Integer numberOfRooms;
     private Integer numberOfBeds;
     private Boolean isMaritalBed;
