@@ -35,6 +35,17 @@ public class Contact {
         return regon;
     }
 
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "phoneNumber='" + phoneNumber + '\'' +
+                ", fax='" + fax + '\'' +
+                ", email='" + email + '\'' +
+                ", nip='" + nip + '\'' +
+                ", regon='" + regon + '\'' +
+                '}';
+    }
+
     public static class ContactBuilder {
         private String phoneNumber;
         private String fax;
