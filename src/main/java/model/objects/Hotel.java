@@ -1,6 +1,8 @@
 package model.objects;
 
-public class Hotel {
+import java.io.Serializable;
+
+public class Hotel implements Serializable {
     private final Integer id;
     private final String name;
     private final Address address;
