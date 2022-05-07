@@ -1,14 +1,14 @@
 package model.objects;
 
 public class HotelFacilities extends AbstractBuilding{
-    private final Integer numberOfRooms;
-    private final Integer numberOfBeds;
-    private final Boolean isMaritalBed;
-    private final Boolean isTelevision;
-    private final Boolean isBathroomInside;
-    private final Boolean isKitchenInside;
-    private final Boolean isPoolAvailable;
-    private final Boolean isParkingLotAvailable;
+    private Integer numberOfRooms;
+    private Integer numberOfBeds;
+    private Boolean isMaritalBed;
+    private Boolean isTelevision;
+    private Boolean isBathroomInside;
+    private Boolean isKitchenInside;
+    private Boolean isPoolAvailable;
+    private Boolean isParkingLotAvailable;
 
     private HotelFacilities(HotelFacilitiesBuilder hotelFacilitiesBuilder) {
         this.numberOfRooms = hotelFacilitiesBuilder.numberOfRooms;
@@ -19,6 +19,9 @@ public class HotelFacilities extends AbstractBuilding{
         this.isKitchenInside = hotelFacilitiesBuilder.isKitchenInside;
         this.isPoolAvailable = hotelFacilitiesBuilder.isPoolAvailable;
         this.isParkingLotAvailable = hotelFacilitiesBuilder.isParkingLotAvailable;
+    }
+
+    public HotelFacilities() {
     }
 
     public Integer getNumberOfRooms() {

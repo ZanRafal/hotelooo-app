@@ -1,11 +1,11 @@
 package model.objects;
 
 public class Contact {
-    private final String phoneNumber;
-    private final String fax;
-    private final String email;
-    private final String nip;
-    private final String regon;
+    private String phoneNumber;
+    private String fax;
+    private String email;
+    private String nip;
+    private String regon;
 
     private Contact(ContactBuilder contactBuilder) {
         this.phoneNumber = contactBuilder.phoneNumber;
@@ -13,6 +13,9 @@ public class Contact {
         this.email = contactBuilder.email;
         this.nip = contactBuilder.nip;
         this.regon = contactBuilder.regon;
+    }
+
+    public Contact() {
     }
 
     public String getPhoneNumber() {

@@ -1,16 +1,19 @@
 package model.objects;
 
 public class Address {
-    private final String country;
-    private final String city;
-    private final String postalCode;
-    private final String streetName;
+    private String country;
+    private String city;
+    private String postalCode;
+    private String streetName;
 
     private Address(AddressBuilder addressBuilder) {
         this.country = addressBuilder.country;
         this.city = addressBuilder.city;
         this.postalCode = addressBuilder.postalCode;
         this.streetName = addressBuilder.streetName;
+    }
+
+    public Address() {
     }
 
     public String getCountry() {
