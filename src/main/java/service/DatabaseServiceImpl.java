@@ -71,7 +71,13 @@ public class DatabaseServiceImpl implements DatabaseService {
     }
 
     @Override
-    public void updateHotelVacancy(Hotel hotel) {
+    public void updateHotel(Hotel hotel) {
+        if(hotel == null || hotel == Hotel.NULL_HOTEL) {
+            return;
+        }
 
+        List<Hotel> hotels = objectReader.readJsonObjects();
+        hotels.add(hotel);
+        objectWriter.writeJsonObjects(hotels);
     }
 }
