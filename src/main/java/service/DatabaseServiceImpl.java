@@ -46,7 +46,14 @@ public class DatabaseServiceImpl implements DatabaseService {
 
     @Override
     public Hotel getHotelByName(String hotelName) {
-        return null;
+        List<Hotel> hotels = objectReader.readJsonObjects();
+        for(Hotel hotel : hotels) {
+            if(hotel.getName().equals(hotelName)) {
+                return hotel;
+            }
+        }
+
+        return Hotel.NULL_HOTEL;
     }
 
     @Override
