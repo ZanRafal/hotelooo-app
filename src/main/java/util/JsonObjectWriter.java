@@ -1,14 +1,13 @@
 package util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Singular;
 import model.objects.Hotel;
 
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.List;
 
-public class JsonObjectWriter extends JsonObjectParser {
+public class JsonObjectWriter extends JsonObjectParser implements WriteJson {
     private static volatile JsonObjectWriter INSTANCE;
 
     private JsonObjectWriter(){}
@@ -28,7 +27,8 @@ public class JsonObjectWriter extends JsonObjectParser {
         return INSTANCE;
     }
 
-    public static void writeJsonObject(Hotel object) {
+    @Override
+    public void writeJsonObject(Hotel object) {
         try (PrintWriter printWriter = new PrintWriter(new FileWriter(PATH, true))){
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.writeValue(printWriter, object);
@@ -37,7 +37,8 @@ public class JsonObjectWriter extends JsonObjectParser {
         }
     }
 
-    public static void writeJsonObjects(List<Hotel> hotels) {
+    @Override
+    public void writeJsonObjects(List<Hotel> hotels) {
         try (PrintWriter printWriter = new PrintWriter(new FileWriter(PATH))){
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.writeValue(printWriter, hotels);
