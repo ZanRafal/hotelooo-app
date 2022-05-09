@@ -7,7 +7,7 @@ import util.JsonObjectWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DatabaseServiceImpl implements DatabaseService{
+public class DatabaseServiceImpl implements DatabaseService {
     private final JsonObjectReader objectReader = JsonObjectReader.getInstance();
     private final JsonObjectWriter objectWriter = JsonObjectWriter.getInstance();
 
@@ -21,6 +21,19 @@ public class DatabaseServiceImpl implements DatabaseService{
         }
 
         return result;
+    }
+
+    @Override
+    public Hotel getHotelById(int hotelId) {
+        if(hotelId < 1) throw new IllegalArgumentException();
+
+        List<Hotel> hotels = objectReader.readJsonObjects();
+        for(Hotel hotel : hotels) {
+            if(hotel.getId() == hotelId) {
+                return hotel;
+            }
+        }
+        return Hotel.NULL_HOTEL;
     }
 
     private void addHotelToResult(List<Hotel> hotels, Hotel hotel) {
