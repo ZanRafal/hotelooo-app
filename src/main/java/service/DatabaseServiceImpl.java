@@ -44,6 +44,7 @@ public class DatabaseServiceImpl implements DatabaseService {
         }
     }
 
+    //TODO pomyśleć nad sprawdzającym ifem oraz clone
     @Override
     public Hotel getHotelByName(String hotelName) {
         List<Hotel> hotels = objectReader.readJsonObjects();
@@ -56,9 +57,17 @@ public class DatabaseServiceImpl implements DatabaseService {
         return Hotel.NULL_HOTEL;
     }
 
+    //TODO pomyśleć nad sprawdzającym ifem oraz clone
     @Override
     public Hotel getHotelByLocation(String hotelLocation) {
-        return null;
+        List<Hotel> hotels = objectReader.readJsonObjects();
+
+        for(Hotel hotel : hotels) {
+            if(hotel.getAddress().getCity().equals(hotelLocation)) {
+                return hotel;
+            }
+        }
+        return Hotel.NULL_HOTEL;
     }
 
     @Override
