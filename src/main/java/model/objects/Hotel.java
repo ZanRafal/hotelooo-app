@@ -1,12 +1,15 @@
 package model.objects;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 import java.io.Serializable;
 
 @Data
 @Builder
+@AllArgsConstructor
 public class Hotel implements Serializable, Cloneable {
     private Integer id;
     private String name;
@@ -31,5 +34,11 @@ public class Hotel implements Serializable, Cloneable {
         } catch (CloneNotSupportedException exception) {
             return NULL_HOTEL;
         }
+    }
+
+    public Hotel clone(int newId) {
+        if(this == NULL_HOTEL) return NULL_HOTEL;
+
+        return new Hotel(newId, name, address, contact, michelinStars, hotelFacilities, client, isVacant);
     }
 }
