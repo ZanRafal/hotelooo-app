@@ -14,6 +14,6 @@ public interface DatabaseService {
 
     Hotel getHotelByLocation(String hotelLocation);
 
-    void updateHotel(Hotel hotel);
+    void updateAndSaveHotel(Hotel newHotel);
 
 }
