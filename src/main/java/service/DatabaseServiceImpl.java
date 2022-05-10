@@ -1,6 +1,7 @@
 package service;
 
 import model.objects.Hotel;
+import model.objects.HotelRoom;
 import util.JsonObjectReader;
 import util.JsonObjectWriter;
 
@@ -44,9 +45,12 @@ public class DatabaseServiceImpl implements DatabaseService {
         return Hotel.NULL_HOTEL;
     }
 
-    //TODO pomyśleć nad sprawdzającym ifem oraz clone
     @Override
     public Hotel getHotelByName(String hotelName) {
+        if(hotelName.equals("")) {
+            return Hotel.NULL_HOTEL;
+        }
+
         List<Hotel> hotels = objectReader.readJsonObjects();
         for(Hotel hotel : hotels) {
             if(hotel.getName().equals(hotelName)) {
@@ -57,9 +61,12 @@ public class DatabaseServiceImpl implements DatabaseService {
         return Hotel.NULL_HOTEL;
     }
 
-    //TODO pomyśleć nad sprawdzającym ifem oraz clone
     @Override
     public Hotel getHotelByLocation(String hotelLocation) {
+        if(hotelLocation.equals("")) {
+            return Hotel.NULL_HOTEL;
+        }
+
         List<Hotel> hotels = objectReader.readJsonObjects();
 
         for(Hotel hotel : hotels) {
@@ -70,14 +77,18 @@ public class DatabaseServiceImpl implements DatabaseService {
         return Hotel.NULL_HOTEL;
     }
 
+    //TODO wymyślić....
     @Override
-    public void updateHotel(Hotel hotel) {
-        if(hotel == null || hotel == Hotel.NULL_HOTEL) {
+    public void updateHotel(Hotel newHotel) {
+        if(newHotel == null || newHotel == Hotel.NULL_HOTEL) {
             return;
         }
 
-
+        List<Hotel> hotels = objectReader.readJsonObjects();
+        for(Hotel hotel : hotels) {
+            if(hotel.getId() == newHotel.getId()) {
+//                HotelRoom room = hotel.getHotelRooms().get()
+            }
+        }
     }
-
-
 }
