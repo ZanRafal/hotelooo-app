@@ -77,7 +77,6 @@ public class DatabaseServiceImpl implements DatabaseService {
         return Hotel.NULL_HOTEL;
     }
 
-    //TODO wymyślić....
     @Override
     public void updateHotel(Hotel newHotel) {
         if(newHotel == null || newHotel == Hotel.NULL_HOTEL) {
@@ -87,7 +86,7 @@ public class DatabaseServiceImpl implements DatabaseService {
         List<Hotel> hotels = objectReader.readJsonObjects();
         for(Hotel hotel : hotels) {
             if(hotel.getId() == newHotel.getId()) {
-//                HotelRoom room = hotel.getHotelRooms().get()
+                hotel.setHotelRooms(newHotel.getHotelRooms());
             }
         }
     }
