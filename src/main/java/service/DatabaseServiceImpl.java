@@ -23,19 +23,6 @@ public class DatabaseServiceImpl implements DatabaseService {
         return result;
     }
 
-    @Override
-    public Hotel getHotelById(int hotelId) {
-        if(hotelId < 1) throw new IllegalArgumentException();
-
-        List<Hotel> hotels = objectReader.readJsonObjects();
-        for(Hotel hotel : hotels) {
-            if(hotel.getId() == hotelId) {
-                return hotel;
-            }
-        }
-        return Hotel.NULL_HOTEL;
-    }
-
     private void addHotelToResult(List<Hotel> hotels, Hotel hotel) {
         Hotel clone = hotel.clone();
 
@@ -44,13 +31,26 @@ public class DatabaseServiceImpl implements DatabaseService {
         }
     }
 
+    @Override
+    public Hotel getHotelById(int hotelId) {
+        if(hotelId < 1) throw new IllegalArgumentException();
+
+        List<Hotel> hotels = objectReader.readJsonObjects();
+        for(Hotel hotel : hotels) {
+            if(hotel.getId() == hotelId) {
+                return hotel.clone();
+            }
+        }
+        return Hotel.NULL_HOTEL;
+    }
+
     //TODO pomyśleć nad sprawdzającym ifem oraz clone
     @Override
     public Hotel getHotelByName(String hotelName) {
         List<Hotel> hotels = objectReader.readJsonObjects();
         for(Hotel hotel : hotels) {
             if(hotel.getName().equals(hotelName)) {
-                return hotel;
+                return hotel.clone();
             }
         }
 
@@ -64,7 +64,7 @@ public class DatabaseServiceImpl implements DatabaseService {
 
         for(Hotel hotel : hotels) {
             if(hotel.getAddress().getCity().equals(hotelLocation)) {
-                return hotel;
+                return hotel.clone();
             }
         }
         return Hotel.NULL_HOTEL;
@@ -76,8 +76,8 @@ public class DatabaseServiceImpl implements DatabaseService {
             return;
         }
 
-        List<Hotel> hotels = objectReader.readJsonObjects();
-        hotels.add(hotel);
-        objectWriter.writeJsonObjects(hotels);
+
     }
+
+
 }
