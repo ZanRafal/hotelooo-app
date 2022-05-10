@@ -6,6 +6,7 @@ import lombok.Data;
 @Data
 @Builder
 public class HotelRoom {
+    private int id;
     private Integer numberOfBeds;
     private Boolean isMaritalBed;
     private Boolean isTelevision;
