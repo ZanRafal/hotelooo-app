@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 @Builder
@@ -14,18 +15,12 @@ public class Hotel implements Serializable, Cloneable {
     private String name;
     private Address address;
     private HotelContact contact;
-    private Integer michelinStars;
+    private List<HotelRoom> hotelRooms;
     private HotelFacilities hotelFacilities;
-    private Client client;
-    private Boolean isVacant = Boolean.TRUE;
 
     public static final Hotel NULL_HOTEL = new Hotel();
 
     public Hotel(){}
-
-    public void toggleVacant() {
-        this.isVacant = !isVacant;
-    }
 
     public Hotel clone() {
         try {
@@ -38,6 +33,6 @@ public class Hotel implements Serializable, Cloneable {
     public Hotel clone(int newId) {
         if(this == NULL_HOTEL) return NULL_HOTEL;
 
-        return new Hotel(newId, name, address, contact, michelinStars, hotelFacilities, client, isVacant);
+        return new Hotel(newId, name, address, contact, hotelRooms, hotelFacilities);
     }
 }
