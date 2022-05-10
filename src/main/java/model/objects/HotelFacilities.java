@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class HotelFacilities extends AbstractBuilding{
+public class HotelFacilities {
     private Integer stars;
     private Integer numberOfRooms;
     private Boolean isPool;
