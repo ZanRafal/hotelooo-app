@@ -77,16 +77,15 @@ public class DatabaseServiceImpl implements DatabaseService {
         return Hotel.NULL_HOTEL;
     }
 
+    //TODO sprawdzić czy działa
     @Override
-    public void updateHotel(Hotel newHotel) {
-        if(newHotel == null || newHotel == Hotel.NULL_HOTEL) {
-            return;
-        }
-
+    public void updateAndSaveHotel(Hotel newHotel) {
         List<Hotel> hotels = objectReader.readJsonObjects();
         for(Hotel hotel : hotels) {
             if(hotel.getId() == newHotel.getId()) {
                 hotel.setHotelRooms(newHotel.getHotelRooms());
+                objectWriter.writeJsonObjects(hotels);
+                break;
             }
         }
     }
