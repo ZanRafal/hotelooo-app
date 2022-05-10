@@ -11,7 +11,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 public class Hotel implements Serializable, Cloneable {
-    private Integer id;
+    private int id;
     private String name;
     private Address address;
     private HotelContact contact;
