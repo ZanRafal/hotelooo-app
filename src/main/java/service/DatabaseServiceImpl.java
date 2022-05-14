@@ -1,7 +1,6 @@
 package service;
 
 import model.objects.Hotel;
-import model.objects.HotelRoom;
 import util.JsonObjectReader;
 import util.JsonObjectWriter;
 
