@@ -35,7 +35,8 @@ public class MainHotelModel implements HotelModel {
 
     @Override
     public void loadHotelByLocation(String location) {
-
+        Hotel hotel = hotelService.getHotelByLocation(location);
+        hotelDataModel.setActiveHotel(hotel);
     }
 
     @Override
