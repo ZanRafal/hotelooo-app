@@ -9,7 +9,7 @@ public class MainHotelModel implements HotelModel {
 
     @Override
     public HotelDataModel getHotelDataModel() {
-        return null;
+        return hotelDataModel;
     }
 
     @Override
