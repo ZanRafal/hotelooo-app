@@ -1,7 +1,10 @@
 package model;
 
+import model.objects.Hotel;
 import model.objects.HotelRoom;
 import service.DatabaseServiceImpl;
+
+import java.util.List;
 
 public class MainHotelModel implements HotelModel {
     private final DatabaseServiceImpl hotelService = new DatabaseServiceImpl();
@@ -14,7 +17,8 @@ public class MainHotelModel implements HotelModel {
 
     @Override
     public void loadHotels() {
-
+        List<Hotel> hotels = hotelService.getAllHotels();
+        hotelDataModel.setHotels(hotels);
     }
 
     @Override
