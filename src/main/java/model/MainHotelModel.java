@@ -23,7 +23,8 @@ public class MainHotelModel implements HotelModel {
 
     @Override
     public void loadHotelById(int hotelId) {
-
+        Hotel hotel = hotelService.getHotelById(hotelId);
+        hotelDataModel.setActiveHotel(hotel);
     }
 
     @Override
