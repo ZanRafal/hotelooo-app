@@ -1,6 +1,9 @@
 package model;
 
+import model.objects.Hotel;
 import model.objects.HotelRoom;
+
+import java.util.ArrayList;
 
 public interface HotelModel {
     HotelDataModel getHotelDataModel();
@@ -13,6 +16,7 @@ public interface HotelModel {
 
     void loadHotelByLocation(String location);
 
-    //TODO przemyśleć i przetestować
     void changeHotelData(HotelRoom newHotelRoom);
+
+    void loadAllHotelsFromMatchingCity(String cityName);
 }
