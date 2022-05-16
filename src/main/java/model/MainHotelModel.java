@@ -4,6 +4,7 @@ import model.objects.Hotel;
 import model.objects.HotelRoom;
 import service.DatabaseServiceImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainHotelModel implements HotelModel {
@@ -37,6 +38,19 @@ public class MainHotelModel implements HotelModel {
     public void loadHotelByLocation(String location) {
         Hotel hotel = hotelService.getHotelByLocation(location);
         hotelDataModel.setActiveHotel(hotel);
+    }
+
+    @Override
+    public void loadAllHotelsFromMatchingCity(String cityName) {
+        List<Hotel> hotels = hotelService.getAllHotels();
+        List<Hotel> result = new ArrayList<>();
+
+        for(Hotel hotel : hotels) {
+            if(hotel.getAddress().getCity().equals(cityName)) {
+                result.add(hotel);
+            }
+        }
+        hotelDataModel.setHotels(result);
     }
 
     @Override
