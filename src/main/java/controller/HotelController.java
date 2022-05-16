@@ -10,4 +10,8 @@ public class HotelController {
     private HotelModel hotelModel;
     private HotelView hotelView;
     private EditRoomView editRoomView;
+
+    public void onLoadAllUsers() {
+        hotelModel.loadHotels();
+    }
 }
