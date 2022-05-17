@@ -28,8 +28,8 @@ public class JsonObjectWriter extends JsonObjectParser implements WriteJson {
     }
 
     @Override
-    public void writeJsonObject(Hotel object) {
-        try (PrintWriter printWriter = new PrintWriter(new FileWriter(PATH, true))){
+    public void writeAndAppendJsonObject(Hotel object) {
+        try (PrintWriter printWriter = new PrintWriter(new FileWriter(FILE, true))){
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.writeValue(printWriter, object);
         } catch (Exception exception) {
@@ -39,7 +39,7 @@ public class JsonObjectWriter extends JsonObjectParser implements WriteJson {
 
     @Override
     public void writeJsonObjects(List<Hotel> hotels) {
-        try (PrintWriter printWriter = new PrintWriter(new FileWriter(PATH))){
+        try (PrintWriter printWriter = new PrintWriter(new FileWriter(FILE))){
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.writeValue(printWriter, hotels);
         } catch (Exception exception) {

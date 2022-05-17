@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface WriteJson {
 
-    void writeJsonObject(Hotel object);
+    void writeAndAppendJsonObject(Hotel object);
 
     void writeJsonObjects(List<Hotel> hotels);
 }
