@@ -1,4 +1,4 @@
-/**
+package controller; /**
  * Sample Skeleton for 'HotelsListScreen.fxml' Controller Class
  */
 
@@ -11,7 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
-public class PleaseProvideControllerClassName {
+public class HotelsListScreenController {
 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;

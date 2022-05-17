@@ -1,3 +1,4 @@
+package controller;
 /**
  * Sample Skeleton for 'HotelDetailsScreen.fxml' Controller Class
  */
@@ -10,7 +11,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
-public class PleaseProvideControllerClassName {
+public class HotelDetailsScreenController {
 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
