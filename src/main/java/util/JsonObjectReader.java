@@ -32,7 +32,7 @@ public class JsonObjectReader extends JsonObjectParser implements ReadJson {
         ArrayList<Hotel> objects = new ArrayList<>();
         try {
             ObjectMapper objectMapper = new ObjectMapper();
-            objects = objectMapper.readValue(new File(PATH), new TypeReference<>(){});
+            objects = objectMapper.readValue(FILE, new TypeReference<>(){});
         } catch (Exception exception) {
             exception.printStackTrace();
         }
