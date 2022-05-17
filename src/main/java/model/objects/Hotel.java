@@ -5,18 +5,18 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.List;
 
 @Data
 @Builder
 @AllArgsConstructor
-public class Hotel implements Serializable, Cloneable {
+public class Hotel extends AbstractBuilding implements Serializable, Cloneable {
     private int id;
     private String name;
     private Address address;
     private HotelContact contact;
-    private List<HotelRoom> hotelRooms;
+    private int numberOfRooms;
     private HotelFacilities hotelFacilities;
+    private float price;
 
     public static final Hotel NULL_HOTEL = new Hotel();
 
@@ -33,6 +33,6 @@ public class Hotel implements Serializable, Cloneable {
     public Hotel clone(int newId) {
         if(this == NULL_HOTEL) return NULL_HOTEL;
 
-        return new Hotel(newId, name, address, contact, hotelRooms, hotelFacilities);
+        return new Hotel(newId, name, address, contact, numberOfRooms, hotelFacilities, price);
     }
 }
