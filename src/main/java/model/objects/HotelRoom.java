@@ -1,22 +1,21 @@
 package model.objects;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
 @Data
 @Builder
+@AllArgsConstructor
 public class HotelRoom {
-    private int id;
-    private Integer numberOfBeds;
-    private Boolean isMaritalBed;
-    private Boolean isTelevision;
-    private Boolean isBathroomInside;
-    private Boolean isKitchenInside;
+    private Integer numberOfPeople;
     private Client client;
-    //TODO zrobić to jako enum
-    private Boolean isOccupied;
+    private Occupancy isOccupied;
 
-    public void toggleOccupied() {
-        this.isOccupied = !isOccupied;
+    public HotelRoom() {
     }
+
+//    public void toggleOccupied() {
+//        this.isOccupied = !isOccupied;
+//    }
 }
