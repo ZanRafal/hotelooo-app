@@ -56,20 +56,10 @@ public class MainHotelModel implements HotelModel {
     @Override
     public void changeHotelData(HotelRoom newHotelRoom) {
         Hotel toUpdate = hotelDataModel.getActiveHotel();
-        Hotel updatedHotel = updateRoomData(toUpdate, newHotelRoom);
-        hotelService.updateAndSaveHotel(updatedHotel);
+        toUpdate.setHotelRoom(newHotelRoom);
+        hotelService.updateAndSaveHotel(toUpdate);
 
         List<Hotel> hotels = hotelService.getAllHotels();
         hotelDataModel.setHotels(hotels);
-    }
-
-    private Hotel updateRoomData(Hotel toUpdate, HotelRoom newRoom) {
-        List<HotelRoom> rooms = toUpdate.g;
-        for(HotelRoom room : rooms) {
-            if(newRoom.getId() == toUpdate.getId()) {
-                room.setClient(newRoom.getClient());
-            }
-        }
-        return toUpdate;
     }
 }
