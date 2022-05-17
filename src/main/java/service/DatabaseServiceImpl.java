@@ -82,7 +82,7 @@ public class DatabaseServiceImpl implements DatabaseService {
         List<Hotel> hotels = objectReader.readJsonObjects();
         for(Hotel hotel : hotels) {
             if(hotel.getId() == newHotel.getId()) {
-                hotel.setHotelRooms(newHotel.getHotelRooms());
+                hotel.setHotelRoom(newHotel.getHotelRoom());
                 objectWriter.writeJsonObjects(hotels);
                 break;
             }
