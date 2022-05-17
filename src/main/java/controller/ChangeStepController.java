@@ -21,4 +21,9 @@ public class ChangeStepController extends StackPane {
     public void addScreen(String name, Node node) {
         screens.put(name, node);
     }
+
+    public Node getScreen(String name) {
+        return screens.get(name);
+    }
+
 }
