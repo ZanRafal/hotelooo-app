@@ -15,7 +15,9 @@ public class HotelRoom {
     public HotelRoom() {
     }
 
-//    public void toggleOccupied() {
-//        this.isOccupied = !isOccupied;
-//    }
+    public void toggleOccupancy() {
+        if (this.isOccupied.equals(Occupancy.OCCUPIED)) isOccupied = Occupancy.AVAILABLE;
+        else isOccupied = Occupancy.OCCUPIED;
+
+    }
 }
