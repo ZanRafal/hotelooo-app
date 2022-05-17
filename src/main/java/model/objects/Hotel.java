@@ -16,6 +16,7 @@ public class Hotel extends AbstractBuilding implements Serializable, Cloneable {
     private HotelContact contact;
     private int numberOfRooms;
     private HotelFacilities hotelFacilities;
+    private HotelRoom hotelRoom;
     private float price;
 
     public static final Hotel NULL_HOTEL = new Hotel();
@@ -33,6 +34,6 @@ public class Hotel extends AbstractBuilding implements Serializable, Cloneable {
     public Hotel clone(int newId) {
         if(this == NULL_HOTEL) return NULL_HOTEL;
 
-        return new Hotel(newId, name, address, contact, numberOfRooms, hotelFacilities, price);
+        return new Hotel(newId, name, address, contact, numberOfRooms, hotelFacilities, hotelRoom, price);
     }
 }
