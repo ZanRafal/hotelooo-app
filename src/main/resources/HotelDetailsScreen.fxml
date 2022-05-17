@@ -7,24 +7,19 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="hotel_details_screen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="63.0" fitWidth="207.0" layoutX="34.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="app_logo" fitHeight="63.0" fitWidth="207.0" layoutX="34.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@app-logo.png" />
          </image>
       </ImageView>
-      <Button layoutX="455.0" layoutY="25.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="108.0" text="Powrót do wyszukiwarki" textAlignment="CENTER" wrapText="true" />
-      <Button layoutX="347.0" layoutY="328.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Rezerwacja" />
-      <ImageView fitHeight="116.0" fitWidth="138.0" layoutX="78.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true" style="visibility: true;">
-         <image>
-            <Image url="@../../../../../../../../Downloads/Ahegao.jpg" />
-         </image>
-      </ImageView>
+      <Button fx:id="back_to_list_button" layoutX="455.0" layoutY="25.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="108.0" text="Powrót do wyszukiwarki" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="submib_reservation_button" layoutX="347.0" layoutY="328.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Rezerwacja" />
+      <ImageView fx:id="photo_container" fitHeight="116.0" fitWidth="138.0" layoutX="78.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true" style="visibility: true;" />
       <Label alignment="CENTER" layoutX="216.0" layoutY="83.0" prefHeight="31.0" prefWidth="304.0" style="-fx-border-color: blue;" text="Informacje o hotelu" textOverrun="WORD_ELLIPSIS" />
-      <Pane layoutX="216.0" layoutY="114.0" prefHeight="200.0" prefWidth="304.0" style="-fx-border-color: green;" />
-      <Label alignment="CENTER" layoutX="78.0" layoutY="191.0" prefHeight="31.0" prefWidth="138.0" style="-fx-border-color: blue;" text="Kontakt" textOverrun="WORD_ELLIPSIS" />
-      <ListView layoutX="78.0" layoutY="221.0" prefHeight="93.0" prefWidth="138.0" style="-fx-border-color: pink;" />
+      <Pane fx:id="hotel_info_container" layoutX="216.0" layoutY="114.0" prefHeight="200.0" prefWidth="304.0" style="-fx-border-color: green;" />
+      <Label alignment="CENTER" layoutX="78.0" layoutY="199.0" prefHeight="31.0" prefWidth="138.0" style="-fx-border-color: blue;" text="Kontakt" textOverrun="WORD_ELLIPSIS" />
+      <ListView fx:id="contacts_containter" layoutX="78.0" layoutY="229.0" prefHeight="85.0" prefWidth="138.0" style="-fx-border-color: pink;" />
    </children>
 </Pane>
