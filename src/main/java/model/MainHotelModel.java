@@ -64,7 +64,7 @@ public class MainHotelModel implements HotelModel {
     }
 
     private Hotel updateRoomData(Hotel toUpdate, HotelRoom newRoom) {
-        List<HotelRoom> rooms = toUpdate.getHotelRooms();
+        List<HotelRoom> rooms = toUpdate.g;
         for(HotelRoom room : rooms) {
             if(newRoom.getId() == toUpdate.getId()) {
                 room.setClient(newRoom.getClient());
