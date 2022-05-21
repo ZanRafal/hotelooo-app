@@ -11,7 +11,7 @@
    <children>
       <ImageView fx:id="app_logo" fitHeight="63.0" fitWidth="207.0" layoutX="34.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@app-logo.png" />
+            <Image url="@../images/app-logo.png" />
          </image>
       </ImageView>
       <Button fx:id="back_to_list_button" layoutX="455.0" layoutY="25.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="108.0" text="Powrót do wyszukiwarki" textAlignment="CENTER" wrapText="true" />
