@@ -10,6 +10,7 @@ import java.util.List;
 @Getter
 @Setter
 @RequiredArgsConstructor
+@Deprecated
 public class RoomDataModel {
     private List<HotelRoom> hotelRooms;
     private HotelRoom activeRoom;

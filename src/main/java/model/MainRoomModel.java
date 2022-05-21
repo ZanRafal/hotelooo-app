@@ -6,6 +6,7 @@ import model.objects.HotelRoom;
 
 //TODO przemyśleć i dokończyć logikę całości
 //TODO IMPORTANT
+@Deprecated
 public class MainRoomModel implements RoomModel {
     private final RoomDataModel roomDataModel = new RoomDataModel();
 

@@ -2,6 +2,7 @@ package model;
 
 import model.objects.Client;
 
+@Deprecated
 public interface RoomModel {
     RoomDataModel getRoomDataModel();
 
