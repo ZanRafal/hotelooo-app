@@ -33,4 +33,8 @@ public class ScreensController extends Application {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void run(String[] args) {
+        launch(args);
+    }
 }
