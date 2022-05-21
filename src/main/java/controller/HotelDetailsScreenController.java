@@ -1,17 +1,20 @@
 package controller;
 /**
- * Sample Skeleton for 'HotelDetailsScreen.fxml' Controller Class
+ * Sample Skeleton for 'hotel_details_screen.fxml' Controller Class
  */
 
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
-public class HotelDetailsScreenController {
+public class HotelDetailsScreenController implements ScreenController, Initializable {
+
+    ChangeStepController controller;
 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
@@ -42,14 +45,23 @@ public class HotelDetailsScreenController {
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
-        assert app_logo != null : "fx:id=\"app_logo\" was not injected: check your FXML file 'HotelDetailsScreen.fxml'.";
-        assert back_to_list_button != null : "fx:id=\"back_to_list_button\" was not injected: check your FXML file 'HotelDetailsScreen.fxml'.";
-        assert contacts_containter != null : "fx:id=\"contacts_containter\" was not injected: check your FXML file 'HotelDetailsScreen.fxml'.";
-        assert hotel_details_screen != null : "fx:id=\"hotel_details_screen\" was not injected: check your FXML file 'HotelDetailsScreen.fxml'.";
-        assert hotel_info_container != null : "fx:id=\"hotel_info_container\" was not injected: check your FXML file 'HotelDetailsScreen.fxml'.";
-        assert photo_container != null : "fx:id=\"photo_container\" was not injected: check your FXML file 'HotelDetailsScreen.fxml'.";
-        assert submib_reservation_button != null : "fx:id=\"submib_reservation_button\" was not injected: check your FXML file 'HotelDetailsScreen.fxml'.";
+        assert app_logo != null : "fx:id=\"app_logo\" was not injected: check your FXML file 'hotel_details_screen.fxml'.";
+        assert back_to_list_button != null : "fx:id=\"back_to_list_button\" was not injected: check your FXML file 'hotel_details_screen.fxml'.";
+        assert contacts_containter != null : "fx:id=\"contacts_containter\" was not injected: check your FXML file 'hotel_details_screen.fxml'.";
+        assert hotel_details_screen != null : "fx:id=\"hotel_details_screen\" was not injected: check your FXML file 'hotel_details_screen.fxml'.";
+        assert hotel_info_container != null : "fx:id=\"hotel_info_container\" was not injected: check your FXML file 'hotel_details_screen.fxml'.";
+        assert photo_container != null : "fx:id=\"photo_container\" was not injected: check your FXML file 'hotel_details_screen.fxml'.";
+        assert submib_reservation_button != null : "fx:id=\"submib_reservation_button\" was not injected: check your FXML file 'hotel_details_screen.fxml'.";
 
     }
 
+    @Override
+    public void setScreenParent(ChangeStepController screenParent) {
+        controller = screenParent;
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }
