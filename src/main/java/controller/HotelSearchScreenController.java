@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import util.ScreenUtils;
 
 public class HotelSearchScreenController implements Initializable, ScreenController {
     private static final HotelController controller = new HotelController();
@@ -46,7 +47,7 @@ public class HotelSearchScreenController implements Initializable, ScreenControl
     @FXML
     void onSearchButtonClicked(ActionEvent event) {
         controller.onLoadAllHotelsFromMatchingCity(citySearchBar.getText());
-        changeStepController.setScreen(ScreensController.HOTEL_LIST_SCREEN_ID);
+        changeStepController.setScreen(ScreenUtils.HOTEL_LIST_SCREEN_ID);
     }
 
     @FXML
