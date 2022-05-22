@@ -56,7 +56,7 @@ public class DatabaseBuilder {
             .hotelRoom(hotelRoom)
             .hotelFacilities(hotelFacilities)
             .price(123.3f) //float
-            .imgUrl("Hooootuwa.jpg") //string
+            .imgUrl("\hotelooo-app\src\main\java\util\Hooootuwa.jpg") //string
             .build();
 
 
