@@ -43,7 +43,6 @@ public class ChangeStepController extends StackPane {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(resource));
             Parent loadScreen = (Parent) loader.load();
             ScreenController screenController = (ScreenController) loader.getController();
-            System.out.println(screenController);
             screenController.setScreenParent(this);
             addScreen(name, loadScreen);
         } catch (Exception e) {
