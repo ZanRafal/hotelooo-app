@@ -9,9 +9,9 @@ public final class ScreenUtils {
     //Screen URL's
     public static final String SEARCH_SCREEN = "/screens/hotel_search_screen.fxml";
     public static final String HOTEL_LIST_SCREEN = "/screens/hotels_list_screen.fxml";
-    public static final String HOTEL_DETAILS_SCREEN = "screens/hotel_details_screen.fxml";
+    public static final String HOTEL_DETAILS_SCREEN = "/screens/hotel_details_screen.fxml";
     @Description("Don't use for now")
-    public static final String PARENT_SCREEN = "screens/MainAppContainter.fxml";
+    public static final String PARENT_SCREEN = "/screens/MainAppContainter.fxml";
 
     //Screen ID's
     public static final String SEARCH_SCREEN_ID = "search_screen";
