@@ -1,60 +1,60 @@
 package controller;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
+import javafx.beans.property.DoubleProperty;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.layout.StackPane;
+import javafx.util.Duration;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@Getter
 @Setter
-@Slf4j
 public class ChangeStepController extends StackPane {
 
+    @Getter
     private Map<String, Node> screens = new HashMap<>();
 
     public ChangeStepController() {
         super();
     }
 
-    public void addScreen(String name, Node node) {
+    private void addScreen(String name, Node node) {
         screens.put(name, node);
     }
 
-    public Node getScreen(String name) {
-        return screens.get(name);
+    //TODO dadać custom wyjątek
+    public void setScreen(final String name) {
+        if (screens.get(name) != null) {
+            if (!getChildren().isEmpty()) {
+                getChildren().remove(0);
+                getChildren().add(0, screens.get(name));
+            } else {
+                getChildren().add(screens.get(name));
+            }
+        } else {
+            System.out.println("screen hasn't been loaded!!! \n");
+        }
     }
 
-    public boolean loadScreen(String name, String resource) {
+    public void loadScreen(String name, String resource) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(resource));
             Parent loadScreen = (Parent) loader.load();
-            ScreenController controlledScreen = ((ScreenController) loader.getController());
-            controlledScreen.setScreenParent(this);
+            ScreenController screenController = (ScreenController) loader.getController();
+            System.out.println(screenController);
+            screenController.setScreenParent(this);
             addScreen(name, loadScreen);
-            return true;
-        } catch (Exception exception) {
-            log.error(exception.getMessage());
-            return false;
-        }
-    }
-
-    //TODO dadać custom wyjątek
-    public boolean setScreen(String name) throws Exception {
-        if(name == null) {
-            throw new Exception("Error");
-        }
-
-        if (!getChildren().isEmpty()) {
-            getChildren().add(screens.get(name));
-            return true;
-        } else {
-            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
