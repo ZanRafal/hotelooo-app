@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import util.ScreenUtils;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -37,7 +38,7 @@ public class SearchScreenController implements ScreenController, Initializable {
     @FXML
     protected void onSearchButtonClicked() {
         controller.onLoadAllHotelsFromMatchingCity(citySearchBar.getText());
-        changeStepController.setScreen(ScreensController.HOTEL_LIST_SCREEN_ID);
+        changeStepController.setScreen(ScreenUtils.HOTEL_LIST_SCREEN_ID);
     }
 
     @FXML
