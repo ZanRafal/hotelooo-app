@@ -22,10 +22,10 @@ public class DatabaseBuilder {
     //pamiętać o prawidłowym formacie
     HotelContact hotelContact = HotelContact.builder()
             .email("mock123@wp.pl")
-            .fax("fax")
-            .nip("nip")
+            .fax("1-658-663-7779")
+            .nip("7610259065")
             .phoneNumber("123-231-123")
-            .regon("jest")
+            .regon("710621971")
             .build();
 
     HotelRoom hotelRoom = HotelRoom.builder()
@@ -56,7 +56,7 @@ public class DatabaseBuilder {
             .hotelRoom(hotelRoom)
             .hotelFacilities(hotelFacilities)
             .price(123.3f) //float
-            .imgUrl("") //string
+            .imgUrl("Hooootuwa.jpg") //string
             .build();
 
 
