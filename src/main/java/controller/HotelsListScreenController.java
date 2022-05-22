@@ -4,6 +4,8 @@ package controller; /**
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -11,10 +13,11 @@ import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import util.ScreenUtils;
 
 public class HotelsListScreenController implements Initializable, ScreenController {
 
-    ChangeStepController controller;
+    ChangeStepController viewController;
 
     @FXML
     private ResourceBundle resources;
@@ -39,7 +42,12 @@ public class HotelsListScreenController implements Initializable, ScreenControll
 
     }
 
-    @FXML // This method is called by the FXMLLoader when initialization is complete
+    @FXML
+    void goToSearchScreen(ActionEvent event) {
+        viewController.setScreen(ScreenUtils.SEARCH_SCREEN_ID);
+    }
+
+    @FXML
     void initialize() {
         assert app_logo != null : "fx:id=\"app_logo\" was not injected: check your FXML file 'hotels_list_screen.fxml'.";
         assert back_to_search_button != null : "fx:id=\"back_to_search_button\" was not injected: check your FXML file 'hotels_list_screen.fxml'.";
@@ -49,7 +57,7 @@ public class HotelsListScreenController implements Initializable, ScreenControll
 
     @Override
     public void setScreenParent(ChangeStepController screenParent) {
-        controller = screenParent;
+        this.viewController = screenParent;
     }
 
     @Override
