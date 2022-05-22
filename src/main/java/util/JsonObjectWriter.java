@@ -3,6 +3,7 @@ package util;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import model.objects.Hotel;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.List;
@@ -29,7 +30,7 @@ public class JsonObjectWriter extends JsonObjectParser implements WriteJson {
 
     @Override
     public void writeAndAppendJsonObject(Hotel object) {
-        try (PrintWriter printWriter = new PrintWriter(new FileWriter(FILE, true))){
+        try (PrintWriter printWriter = new PrintWriter(new FileWriter(PATH, true))){
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.writeValue(printWriter, object);
         } catch (Exception exception) {
@@ -39,7 +40,7 @@ public class JsonObjectWriter extends JsonObjectParser implements WriteJson {
 
     @Override
     public void writeJsonObjects(List<Hotel> hotels) {
-        try (PrintWriter printWriter = new PrintWriter(new FileWriter(FILE))){
+        try (PrintWriter printWriter = new PrintWriter(new FileWriter(PATH))){
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.writeValue(printWriter, hotels);
         } catch (Exception exception) {
