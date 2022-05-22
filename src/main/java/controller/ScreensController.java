@@ -22,7 +22,6 @@ public class ScreensController extends Application {
         root.getChildren().addAll(mainContainer);
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        //TODO Dodać do propertasów albo utilki
         stage.setTitle("Hotelooo");
         stage.show();
     }
