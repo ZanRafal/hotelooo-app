@@ -1,4 +1,4 @@
-package controller;
+package controller.frontend;
 
 //interfejs odpowiadający za ustawianie parenta dla danego ekranu
 //controlled screen

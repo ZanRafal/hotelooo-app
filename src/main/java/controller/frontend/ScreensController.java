@@ -1,4 +1,4 @@
-package controller;
+package controller.frontend;
 
 import javafx.application.Application;
 import javafx.scene.Group;
