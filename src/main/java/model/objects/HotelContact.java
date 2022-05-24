@@ -16,6 +16,9 @@ public class HotelContact extends Contact {
     private String regon;
     private String nip;
 
+    public static final HotelContact NULL_HOTEL_CONTACT = new HotelContact();
+
     public HotelContact() {
+        this("","","","","");
     }
 }
