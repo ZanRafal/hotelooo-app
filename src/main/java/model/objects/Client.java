@@ -13,6 +13,9 @@ public class Client {
     private String lastName;
     private Contact contact;
 
+    public static final Client NULL_CLIENT = new Client();
+
     public Client() {
+        this("", "", Contact.NULL_CONTACT);
     }
 }
