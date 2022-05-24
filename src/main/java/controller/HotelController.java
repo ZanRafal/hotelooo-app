@@ -1,25 +1,20 @@
 package controller;
 
 import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
-import model.HotelModel;
 import model.MainHotelModel;
-import view.EditRoomView;
+import service.ApplicationModelInitializerService;
 import view.HotelView;
 
 @Setter
 public class HotelController {
-    private HotelModel hotelModel = new MainHotelModel();
+    private MainHotelModel model = ApplicationModelInitializerService.getMainModel();
     private HotelView hotelView;
-    private EditRoomView editRoomView;
 
-    public void onLoadAllUsers() {
-        hotelModel.loadHotels();
-        System.out.println(hotelModel.getHotelDataModel().getHotels());
+    public void onLoadAllHotels() {
+        model.loadHotels();
     }
 
     public void onLoadAllHotelsFromMatchingCity(String cityName) {
-        hotelModel.loadAllHotelsFromMatchingCity(cityName);
-        System.out.println(hotelModel.getHotelDataModel().getHotels());
+        model.loadAllHotelsFromMatchingCity(cityName);
     }
 }
