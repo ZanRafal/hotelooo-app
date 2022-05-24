@@ -18,6 +18,9 @@ public class HotelFacilities {
     private Boolean isBathroomInside;
     private Boolean isKitchenInside;
 
+    public static final HotelFacilities NULL_FACILITIES = new HotelFacilities();
+
     public HotelFacilities() {
+        this(0,0,false, false, false, false, false, false, false);
     }
 }
