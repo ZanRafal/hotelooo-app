@@ -1,49 +1,59 @@
-package controller;
+package controller.frontend;
 /**
  * Sample Skeleton for 'hotel_details_screen.fxml' Controller Class
  */
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import controller.HotelController;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import model.HotelDataModel;
+import model.objects.Hotel;
+import service.ApplicationModelInitializerService;
+import util.ScreenUtils;
 
 public class HotelDetailsScreenController implements ScreenController, Initializable {
+    private static final HotelController controller = ApplicationModelInitializerService.getController();
+    private static final HotelDataModel model = ApplicationModelInitializerService.getDataModel();
+//    private Hotel activeHotel = model.getActiveHotel();
+    ChangeStepController viewController;
 
-    ChangeStepController controller;
-
-    @FXML // ResourceBundle that was given to the FXMLLoader
+    @FXML
     private ResourceBundle resources;
 
-    @FXML // URL location of the FXML file that was given to the FXMLLoader
+    @FXML
     private URL location;
 
-    @FXML // fx:id="app_logo"
-    private ImageView app_logo; // Value injected by FXMLLoader
+    @FXML
+    private ImageView app_logo;
 
-    @FXML // fx:id="back_to_list_button"
-    private Button back_to_list_button; // Value injected by FXMLLoader
+    @FXML
+    private Button back_to_list_button;
 
-    @FXML // fx:id="contacts_containter"
-    private ListView<?> contacts_containter; // Value injected by FXMLLoader
+    @FXML
+    private ListView<?> contacts_containter;
 
-    @FXML // fx:id="hotel_details_screen"
-    private Pane hotel_details_screen; // Value injected by FXMLLoader
+    @FXML
+    private Pane hotel_details_screen;
 
-    @FXML // fx:id="hotel_info_container"
-    private Pane hotel_info_container; // Value injected by FXMLLoader
+    @FXML
+    private Pane hotel_info_container;
 
-    @FXML // fx:id="photo_container"
-    private ImageView photo_container; // Value injected by FXMLLoader
+    @FXML
+    private ImageView photo_container;
 
-    @FXML // fx:id="submib_reservation_button"
-    private Button submib_reservation_button; // Value injected by FXMLLoader
+    @FXML
+    private Button submib_reservation_button;
 
-    @FXML // This method is called by the FXMLLoader when initialization is complete
+    @FXML
     void initialize() {
         assert app_logo != null : "fx:id=\"app_logo\" was not injected: check your FXML file 'hotel_details_screen.fxml'.";
         assert back_to_list_button != null : "fx:id=\"back_to_list_button\" was not injected: check your FXML file 'hotel_details_screen.fxml'.";
@@ -57,11 +67,22 @@ public class HotelDetailsScreenController implements ScreenController, Initializ
 
     @Override
     public void setScreenParent(ChangeStepController screenParent) {
-        controller = screenParent;
+        viewController = screenParent;
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+//        hotel_info_container.setAccessibleText(model.getActiveHotel().toString());
+    }
 
+    public void goBackToList(ActionEvent event) {
+        viewController.setScreen(ScreenUtils.HOTEL_LIST_SCREEN_ID);
+    }
+
+    public void goBackToSearch(MouseEvent event) {
+        viewController.setScreen(ScreenUtils.SEARCH_SCREEN_ID);
+    }
+
+    public void goToReservationScreen(ActionEvent event) {
     }
 }
