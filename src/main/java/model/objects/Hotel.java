@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
+import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -23,7 +24,15 @@ public class Hotel extends AbstractBuilding implements Serializable, Cloneable {
 
     public static final Hotel NULL_HOTEL = new Hotel();
 
-    public Hotel(){}
+    public Hotel(){
+        this(0, "",
+                Address.NULL_ADDRESS,
+                HotelContact.NULL_HOTEL_CONTACT,
+                HotelFacilities.NULL_FACILITIES,
+                HotelRoom.NULL_ROOM,
+                0f,
+                "");
+    }
 
     public Hotel clone() {
         try {
@@ -37,5 +46,13 @@ public class Hotel extends AbstractBuilding implements Serializable, Cloneable {
         if(this == NULL_HOTEL) return NULL_HOTEL;
 
         return new Hotel(newId, name, address, contact, hotelFacilities, hotelRoom, price, imgUrl);
+    }
+
+    public List<String> getContactFields() {
+        return List.of(contact.getEmail(),
+                contact.getFax(),
+                contact.getNip(),
+                contact.getRegon(),
+                contact.getPhoneNumber());
     }
 }
