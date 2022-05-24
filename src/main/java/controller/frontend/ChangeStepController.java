@@ -1,5 +1,6 @@
-package controller;
+package controller.frontend;
 
+import javafx.concurrent.Service;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -34,7 +35,7 @@ public class ChangeStepController extends StackPane {
                 getChildren().add(screens.get(name));
             }
         } else {
-            System.out.println("screen hasn't been loaded!!! \n");
+            System.out.println("Screen " + name + " hasn't been loaded!!! \n");
         }
     }
 
