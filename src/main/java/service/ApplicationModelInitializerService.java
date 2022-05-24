@@ -35,6 +35,5 @@ public class ApplicationModelInitializerService {
     public void initialize() {
         controller.setModel(mainModel);
         mainModel.loadHotels();
-//        System.out.println(mainModel.getHotelDataModel().getHotels());
     }
 }
