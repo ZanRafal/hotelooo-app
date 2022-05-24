@@ -12,7 +12,10 @@ public class HotelRoom {
     private Client client;
     private Occupancy isOccupied;
 
+    public static final HotelRoom NULL_ROOM = new HotelRoom();
+
     public HotelRoom() {
+        this(0,Client.NULL_CLIENT,Occupancy.OCCUPIED);
     }
 
     public void toggleOccupied() {
