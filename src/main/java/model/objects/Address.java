@@ -11,6 +11,9 @@ public class Address {
     private String postalCode;
     private String streetName;
 
+    public static final Address NULL_ADDRESS = new Address();
+
     public Address() {
+        this("","","","");
     }
 }
