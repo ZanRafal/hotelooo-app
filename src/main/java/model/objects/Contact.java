@@ -11,6 +11,10 @@ public class Contact {
     private String phoneNumber;
     private String email;
 
+    public static final Contact NULL_CONTACT = new Contact();
+
     public Contact() {
+        this("", "");
     }
 }
+
