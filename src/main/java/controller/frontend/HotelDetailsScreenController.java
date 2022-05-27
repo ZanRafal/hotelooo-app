@@ -96,6 +96,7 @@ public class HotelDetailsScreenController implements ScreenController, Initializ
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Hotel hotel = initializeHotel(model.getActiveHotel());
+        initializeFieldsWithValues(hotel);
     }
 
     public void goBackToList(ActionEvent event) {
@@ -106,6 +107,17 @@ public class HotelDetailsScreenController implements ScreenController, Initializ
         viewController.setScreen(ScreenUtils.SEARCH_SCREEN_ID);
     }
 
+    private void initializeFieldsWithValues(Hotel hotel) {
+        this.hotel_name_field.setText("Hotel: " + hotel.getName()); //nazwa
+        this.location_field.setText(hotel.getAddress().getCity() + ", " + hotel.getAddress().getStreetName());
+        this.number_of_rooms_field.setText(hotel.getHotelFacilities().getNumberOfRooms().toString());
+        //TODO Zrobić coś z gwiazdkami
+        this.number_of_stars_field.setText(hotel.getHotelFacilities().getStars().toString());
+        this.price_field.setText(hotel.getPrice().toString());
+        contacts_container.setItems(FXCollections.observableList(hotel.getContactFields()));
+        LabelValueBuilder valueBuilder = new LabelValueBuilder(hotel.getHotelFacilities());
+        valueBuilder.mapValuesToFields(buildLabelsArray());
+    }
 
     private ArrayList<Label> buildLabelsArray() {
         return  new ArrayList<>(
