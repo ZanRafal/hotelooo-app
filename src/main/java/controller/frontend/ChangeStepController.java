@@ -1,6 +1,5 @@
 package controller.frontend;
 
-import javafx.concurrent.Service;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -26,6 +25,7 @@ public class ChangeStepController extends StackPane {
     }
 
     //TODO dadać custom wyjątek
+    //TODO dodać error logger
     public void setScreen(final String name) {
         if (screens.get(name) != null) {
             if (!getChildren().isEmpty()) {
