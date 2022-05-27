@@ -106,6 +106,7 @@ public class HotelDetailsScreenController implements ScreenController, Initializ
 
 
     public void submitReservation(ActionEvent event) {
+        nextStep();
     }
 
     private void initializeFieldsWithValues(Hotel hotel) {
@@ -133,5 +134,10 @@ public class HotelDetailsScreenController implements ScreenController, Initializ
 
     private Hotel initializeHotel(Hotel hotel) {
         return Objects.requireNonNullElse(hotel, Hotel.NULL_HOTEL);
+    }
+
+    private void nextStep() {
+        viewController.loadScreen(ScreenUtils.HOTEL_RESERVATION_SCREEN_ID, ScreenUtils.HOTEL_RESERVATION_SCREEN);
+        viewController.setScreen(ScreenUtils.HOTEL_RESERVATION_SCREEN_ID);
     }
 }
