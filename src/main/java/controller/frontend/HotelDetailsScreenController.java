@@ -123,10 +123,10 @@ public class HotelDetailsScreenController implements ScreenController, Initializ
     private ArrayList<Label> buildLabelsArray() {
         return  new ArrayList<>(
             Arrays.asList(facilities_field1,
-                    facilities_field2,
-                    facilities_field3,
                     facilities_field4,
+                    facilities_field2,
                     facilities_field5,
+                    facilities_field3,
                     facilities_field6
             ));
     }
