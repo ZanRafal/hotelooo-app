@@ -15,6 +15,7 @@ public class ScreensController extends Application {
         mainContainer.loadScreen(ScreenUtils.SEARCH_SCREEN_ID, ScreenUtils.SEARCH_SCREEN);
         mainContainer.loadScreen(ScreenUtils.HOTEL_LIST_SCREEN_ID, ScreenUtils.HOTEL_LIST_SCREEN);
         mainContainer.loadScreen(ScreenUtils.HOTEL_DETAILS_SCREEN_ID, ScreenUtils.HOTEL_DETAILS_SCREEN);
+        mainContainer.loadScreen(ScreenUtils.HOTEL_RESERVATION_SCREEN_ID, ScreenUtils.HOTEL_DETAILS_SCREEN);
 
         mainContainer.setScreen(ScreenUtils.SEARCH_SCREEN_ID);
 
