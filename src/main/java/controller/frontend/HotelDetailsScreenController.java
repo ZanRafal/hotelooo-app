@@ -1,7 +1,4 @@
 package controller.frontend;
-/**
- * Sample Skeleton for 'hotel_details_screen.fxml' Controller Class
- */
 
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -105,6 +102,10 @@ public class HotelDetailsScreenController implements ScreenController, Initializ
 
     public void goBackToSearch(MouseEvent event) {
         viewController.setScreen(ScreenUtils.SEARCH_SCREEN_ID);
+    }
+
+
+    public void submitReservation(ActionEvent event) {
     }
 
     private void initializeFieldsWithValues(Hotel hotel) {
