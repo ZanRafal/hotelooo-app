@@ -3,31 +3,63 @@ package controller.frontend;
  * Sample Skeleton for 'hotel_details_screen.fxml' Controller Class
  */
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-import controller.HotelController;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import model.HotelDataModel;
 import model.objects.Hotel;
+import model.objects.LabelValueBuilder;
 import service.ApplicationModelInitializerService;
 import util.ScreenUtils;
 
+import java.net.URL;
+import java.util.*;
+
 public class HotelDetailsScreenController implements ScreenController, Initializable {
-    private static final HotelController controller = ApplicationModelInitializerService.getController();
     private static final HotelDataModel model = ApplicationModelInitializerService.getDataModel();
-//    private Hotel activeHotel = model.getActiveHotel();
-    ChangeStepController viewController;
+    private ChangeStepController viewController;
 
     @FXML
+    public Label facilities_field1;
+
+    @FXML
+    public Label facilities_field4;
+
+    @FXML
+    public Label facilities_field2;
+
+    @FXML
+    public Label facilities_field5;
+
+    @FXML
+    public Label facilities_field3;
+
+    @FXML
+    public Label facilities_field6;
+
     private ResourceBundle resources;
+
+    @FXML
+    public Label price_field;
+
+    @FXML
+    private Label number_of_stars_field;
+
+    @FXML
+    private Label number_of_rooms_field;
+
+    @FXML
+    private Label location_field;
+
+    @FXML
+    private Label hotel_name_field;
 
     @FXML
     private URL location;
@@ -39,7 +71,10 @@ public class HotelDetailsScreenController implements ScreenController, Initializ
     private Button back_to_list_button;
 
     @FXML
-    private ListView<?> contacts_containter;
+    private Button reservation_button;
+
+    @FXML
+    private ListView<String> contacts_container;
 
     @FXML
     private Pane hotel_details_screen;
@@ -51,19 +86,7 @@ public class HotelDetailsScreenController implements ScreenController, Initializ
     private ImageView photo_container;
 
     @FXML
-    private Button submib_reservation_button;
-
-    @FXML
-    void initialize() {
-        assert app_logo != null : "fx:id=\"app_logo\" was not injected: check your FXML file 'hotel_details_screen.fxml'.";
-        assert back_to_list_button != null : "fx:id=\"back_to_list_button\" was not injected: check your FXML file 'hotel_details_screen.fxml'.";
-        assert contacts_containter != null : "fx:id=\"contacts_containter\" was not injected: check your FXML file 'hotel_details_screen.fxml'.";
-        assert hotel_details_screen != null : "fx:id=\"hotel_details_screen\" was not injected: check your FXML file 'hotel_details_screen.fxml'.";
-        assert hotel_info_container != null : "fx:id=\"hotel_info_container\" was not injected: check your FXML file 'hotel_details_screen.fxml'.";
-        assert photo_container != null : "fx:id=\"photo_container\" was not injected: check your FXML file 'hotel_details_screen.fxml'.";
-        assert submib_reservation_button != null : "fx:id=\"submib_reservation_button\" was not injected: check your FXML file 'hotel_details_screen.fxml'.";
-
-    }
+    private Button submit_reservation_button;
 
     @Override
     public void setScreenParent(ChangeStepController screenParent) {
@@ -72,7 +95,7 @@ public class HotelDetailsScreenController implements ScreenController, Initializ
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        hotel_info_container.setAccessibleText(model.getActiveHotel().toString());
+        Hotel hotel = initializeHotel(model.getActiveHotel());
     }
 
     public void goBackToList(ActionEvent event) {
@@ -83,6 +106,19 @@ public class HotelDetailsScreenController implements ScreenController, Initializ
         viewController.setScreen(ScreenUtils.SEARCH_SCREEN_ID);
     }
 
-    public void goToReservationScreen(ActionEvent event) {
+
+    private ArrayList<Label> buildLabelsArray() {
+        return  new ArrayList<>(
+            Arrays.asList(facilities_field1,
+                    facilities_field2,
+                    facilities_field3,
+                    facilities_field4,
+                    facilities_field5,
+                    facilities_field6
+            ));
+    }
+
+    private Hotel initializeHotel(Hotel hotel) {
+        return Objects.requireNonNullElse(hotel, Hotel.NULL_HOTEL);
     }
 }
