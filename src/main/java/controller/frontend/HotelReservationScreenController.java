@@ -95,4 +95,9 @@ public class HotelReservationScreenController implements Initializable, ScreenCo
                 .contact(contact)
                 .build();
     }
+
+    private Map<String, String> splitCredentialsFromString() {
+        String[] val = credentials_field.getText().split(" ");
+        return Map.of("name", val[0], "lastName", val[1]);
+    }
 }
