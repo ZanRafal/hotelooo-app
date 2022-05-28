@@ -55,6 +55,7 @@ public class HotelReservationScreenController implements Initializable, ScreenCo
 
     @FXML
     void goBackToSearch(MouseEvent event) {
+        viewController.setScreen(ScreenUtils.SEARCH_SCREEN_ID);
     }
 
     @FXML
