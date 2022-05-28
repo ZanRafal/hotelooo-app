@@ -100,4 +100,12 @@ public class HotelReservationScreenController implements Initializable, ScreenCo
         String[] val = credentials_field.getText().split(" ");
         return Map.of("name", val[0], "lastName", val[1]);
     }
+
+    public void toggleEdit(ActionEvent event) {
+        if (edit_button.isSelected()) {
+            reservation_time.setEditable(true);
+        } else {
+            reservation_time.setEditable(false);
+        }
+    }
 }
