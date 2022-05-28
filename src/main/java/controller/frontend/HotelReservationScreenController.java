@@ -11,8 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import model.HotelDataModel;
-import model.objects.Client;
-import model.objects.Contact;
+import model.objects.*;
 import service.ApplicationModelInitializerService;
 import util.ScreenUtils;
 
@@ -68,7 +67,6 @@ public class HotelReservationScreenController implements Initializable, ScreenCo
 
     @FXML
     void submit(ActionEvent event) {
-
     }
 
     @Override
@@ -79,6 +77,14 @@ public class HotelReservationScreenController implements Initializable, ScreenCo
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+    }
+
+    private HotelRoom buildRoomToUpdate() {
+        return HotelRoom.builder()
+                .client(buildClient())
+                .numberOfPeople(Integer.parseInt(number_of_people_field.getText()))
+                .isOccupied(Occupancy.OCCUPIED)
+                .build();
     }
 
     private Client buildClient() {
