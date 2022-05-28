@@ -6,15 +6,18 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import model.HotelDataModel;
+import model.objects.Client;
+import model.objects.Contact;
 import service.ApplicationModelInitializerService;
 import util.ScreenUtils;
 
 import java.net.URL;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class HotelReservationScreenController implements Initializable, ScreenController {
     private static final HotelDataModel model = ApplicationModelInitializerService.getDataModel();
@@ -23,21 +26,26 @@ public class HotelReservationScreenController implements Initializable, ScreenCo
     @FXML
     private ImageView app_logo;
 
-
     @FXML
     private TextField credentials_field;
-
-    @FXML
-    private TextField number_of_people_field;
 
     @FXML
     private TextField phone_number_field;
 
     @FXML
+    private TextField email_field;
+
+    @FXML
     private Pane reservation_screen;
 
     @FXML
+    private TextField number_of_people_field;
+
+    @FXML
     private TextField reservation_time;
+
+    @FXML
+    private Label total_cost_field;
 
     @FXML
     private Button submit_button;
@@ -46,11 +54,11 @@ public class HotelReservationScreenController implements Initializable, ScreenCo
     private Button cancel_button;
 
     @FXML
-    private Label total_cost_field;
+    private ToggleButton edit_button;
 
     @FXML
     void cancel(ActionEvent event) {
-
+        viewController.setScreen(ScreenUtils.HOTEL_LIST_SCREEN_ID);
     }
 
     @FXML
@@ -71,5 +79,20 @@ public class HotelReservationScreenController implements Initializable, ScreenCo
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+    }
+
+    private Client buildClient() {
+        Map<String, String> valuesMap = splitCredentialsFromString();
+
+        Contact contact = Contact.builder()
+                .phoneNumber(phone_number_field.getText())
+                .email(email_field.getText())
+                .build();
+
+        return Client.builder()
+                .firstName(valuesMap.get("name"))
+                .lastName(valuesMap.get("lastName"))
+                .contact(contact)
+                .build();
     }
 }
