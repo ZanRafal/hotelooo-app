@@ -1,8 +1,12 @@
 package controller.frontend;
 
+import controller.HotelController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -10,6 +14,7 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import model.HotelDataModel;
 import model.objects.*;
 import service.ApplicationModelInitializerService;
@@ -20,6 +25,7 @@ import java.util.*;
 
 public class HotelReservationScreenController implements Initializable, ScreenController {
     private static final HotelDataModel model = ApplicationModelInitializerService.getDataModel();
+    private static final HotelController modelController = ApplicationModelInitializerService.getController();
     private ChangeStepController viewController;
 
     @FXML
@@ -57,7 +63,9 @@ public class HotelReservationScreenController implements Initializable, ScreenCo
 
     @FXML
     void cancel(ActionEvent event) {
-        viewController.setScreen(ScreenUtils.HOTEL_LIST_SCREEN_ID);
+        HotelRoom toUpdate = buildRoomToUpdate();
+        model.getActiveHotel().setHotelRoom(toUpdate);
+        viewController.setScreen(ScreenUtils.HOTEL_LIST_SCREEN_ID);;
     }
 
     @FXML
@@ -67,6 +75,11 @@ public class HotelReservationScreenController implements Initializable, ScreenCo
 
     @FXML
     void submit(ActionEvent event) {
+        HotelRoom toUpdate = buildRoomToUpdate();
+        toUpdate.setIsOccupied(Occupancy.OCCUPIED);
+        model.getActiveHotel().setHotelRoom(toUpdate);
+        modelController.onSaveHotelData(toUpdate);
+        viewController.setScreen(ScreenUtils.HOTEL_LIST_SCREEN_ID);
     }
 
     @Override
@@ -83,7 +96,6 @@ public class HotelReservationScreenController implements Initializable, ScreenCo
         return HotelRoom.builder()
                 .client(buildClient())
                 .numberOfPeople(Integer.parseInt(number_of_people_field.getText()))
-                .isOccupied(Occupancy.OCCUPIED)
                 .build();
     }
 
@@ -109,9 +121,9 @@ public class HotelReservationScreenController implements Initializable, ScreenCo
 
     public void toggleEdit(ActionEvent event) {
         if (edit_button.isSelected()) {
-            reservation_time.setEditable(true);
-        } else {
             reservation_time.setEditable(false);
+        } else {
+            reservation_time.setEditable(true);
             updateTotalCost();
         }
     }
