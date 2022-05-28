@@ -2,13 +2,12 @@ package controller;
 
 import lombok.Setter;
 import model.MainHotelModel;
+import model.objects.HotelRoom;
 import service.ApplicationModelInitializerService;
-import view.HotelView;
 
 @Setter
 public class HotelController {
     private MainHotelModel model = ApplicationModelInitializerService.getMainModel();
-    private HotelView hotelView;
 
     public void onLoadAllHotels() {
         model.loadHotels();
@@ -16,5 +15,9 @@ public class HotelController {
 
     public void onLoadAllHotelsFromMatchingCity(String cityName) {
         model.loadAllHotelsFromMatchingCity(cityName);
+    }
+
+    public void onSaveHotelData(HotelRoom hotelRoom) {
+        model.changeHotelData(hotelRoom);
     }
 }
