@@ -13,11 +13,15 @@ import javafx.scene.layout.Pane;
 import model.HotelDataModel;
 import model.objects.Hotel;
 import model.objects.LabelValueBuilder;
+import model.objects.Occupancy;
 import service.ApplicationModelInitializerService;
 import util.ScreenUtils;
 
 import java.net.URL;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Objects;
+import java.util.ResourceBundle;
 
 public class HotelDetailsScreenController implements ScreenController, Initializable {
     private static final HotelDataModel model = ApplicationModelInitializerService.getDataModel();
@@ -41,7 +45,8 @@ public class HotelDetailsScreenController implements ScreenController, Initializ
     @FXML
     public Label facilities_field6;
 
-    private ResourceBundle resources;
+    @FXML
+    private Label occupancy_field;
 
     @FXML
     public Label price_field;
@@ -59,31 +64,10 @@ public class HotelDetailsScreenController implements ScreenController, Initializ
     private Label hotel_name_field;
 
     @FXML
-    private URL location;
-
-    @FXML
     private ImageView app_logo;
 
     @FXML
-    private Button back_to_list_button;
-
-    @FXML
-    private Button reservation_button;
-
-    @FXML
     private ListView<String> contacts_container;
-
-    @FXML
-    private Pane hotel_details_screen;
-
-    @FXML
-    private Pane hotel_info_container;
-
-    @FXML
-    private ImageView photo_container;
-
-    @FXML
-    private Button submit_reservation_button;
 
     @Override
     public void setScreenParent(ChangeStepController screenParent) {
@@ -106,6 +90,11 @@ public class HotelDetailsScreenController implements ScreenController, Initializ
 
 
     public void submitReservation(ActionEvent event) {
+        if (model.getActiveHotel().getHotelRoom().getIsOccupied() != null) {
+            if(model.getActiveHotel().getHotelRoom().getIsOccupied().equals(Occupancy.OCCUPIED)) {
+                return;
+            }
+        }
         nextStep();
     }
 
@@ -113,12 +102,21 @@ public class HotelDetailsScreenController implements ScreenController, Initializ
         this.hotel_name_field.setText("Hotel: " + hotel.getName()); //nazwa
         this.location_field.setText(hotel.getAddress().getCity() + ", " + hotel.getAddress().getStreetName());
         this.number_of_rooms_field.setText(hotel.getHotelFacilities().getNumberOfRooms().toString());
-        //TODO Zrobić coś z gwiazdkami
-        this.number_of_stars_field.setText(hotel.getHotelFacilities().getStars().toString());
+        this.number_of_stars_field.setText(buildStarsString(hotel.getHotelFacilities().getStars()));
         this.price_field.setText(hotel.getPrice().toString());
         contacts_container.setItems(FXCollections.observableList(hotel.getContactFields()));
+        occupancy_field.setText(hotel.getHotelRoom().getIsOccupied().getValue());
         LabelValueBuilder valueBuilder = new LabelValueBuilder(hotel.getHotelFacilities());
         valueBuilder.mapValuesToFields(buildLabelsArray());
+    }
+
+    private String buildStarsString(int number) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < number; i++) {
+            sb.append(Character.toString(9733))
+                    .append(" ");
+        }
+        return sb.toString();
     }
 
     private ArrayList<Label> buildLabelsArray() {
