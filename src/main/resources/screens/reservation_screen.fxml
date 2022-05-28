@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="reservation_screen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="420.0" minWidth="640.0" prefHeight="423.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.frontend.HotelReservationScreenController">
+   <children>
+      <ImageView fx:id="app_logo" fitHeight="63.0" fitWidth="207.0" layoutX="34.0" layoutY="25.0" onMouseClicked="#goBackToSearch" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/app-logo.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="summary" alignment="CENTER" layoutX="69.0" layoutY="110.0" prefHeight="31.0" prefWidth="489.0" style="-fx-border-color: blue;" text="Podsumowanie" textOverrun="WORD_ELLIPSIS" />
+      <Pane fx:id="hotel_info_container" layoutX="69.0" layoutY="141.0" prefHeight="221.0" prefWidth="489.0" style="-fx-border-color: green;">
+         <children>
+            <Label layoutX="16.0" layoutY="54.0" prefHeight="31.0" prefWidth="123.0" text="Numer telefonu" textAlignment="CENTER" />
+            <Label layoutX="19.0" layoutY="175.0" prefHeight="31.0" prefWidth="135.0" text="Do zapłaty" textAlignment="CENTER" />
+            <Label fx:id="price_field" alignment="CENTER" layoutX="150.0" layoutY="191.0" prefHeight="31.0" prefWidth="150.0" textAlignment="CENTER" />
+            <Label fx:id="total_cost_field" alignment="CENTER" layoutX="225.0" layoutY="175.0" prefHeight="31.0" prefWidth="199.0" text="Do zapłaty" textAlignment="CENTER" />
+            <Label layoutX="16.0" layoutY="95.0" prefHeight="31.0" prefWidth="123.0" text="Liczba osób" textAlignment="CENTER" />
+            <Label layoutX="17.0" layoutY="134.0" prefHeight="31.0" prefWidth="123.0" text="Okres zameldowania" textAlignment="CENTER" />
+            <TextField fx:id="reservation_time" layoutX="250.0" layoutY="137.0" />
+            <TextField fx:id="number_of_people_field" layoutX="250.0" layoutY="98.0" />
+            <TextField fx:id="phone_number_field" layoutX="250.0" layoutY="57.0" />
+            <TextField fx:id="credentials_field" layoutX="250.0" layoutY="19.0" />
+            <Label layoutX="16.0" layoutY="16.0" prefHeight="31.0" prefWidth="123.0" text="Imię i nazwisko" textAlignment="CENTER" />
+         </children></Pane>
+      <Button fx:id="cancel_button" layoutX="373.0" layoutY="380.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="150.0" text="anuluj" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="submit_button" layoutX="98.0" layoutY="380.0" mnemonicParsing="false" onAction="#submit" prefHeight="25.0" prefWidth="150.0" text="potwierdź" />
+   </children>
+   <cursor>
+      <Cursor fx:constant="DEFAULT" />
+   </cursor>
+</Pane>
