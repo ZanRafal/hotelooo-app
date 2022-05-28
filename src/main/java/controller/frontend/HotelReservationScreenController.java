@@ -106,6 +106,13 @@ public class HotelReservationScreenController implements Initializable, ScreenCo
             reservation_time.setEditable(true);
         } else {
             reservation_time.setEditable(false);
+            updateTotalCost();
         }
+    }
+
+    private void updateTotalCost() {
+        int days = Integer.parseInt(reservation_time.getText());
+        float price = model.getActiveHotel().getPrice();
+        total_cost_field.setText(String.format("%.2f zł", price * days));
     }
 }
