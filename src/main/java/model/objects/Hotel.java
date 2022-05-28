@@ -19,7 +19,7 @@ public class Hotel extends AbstractBuilding implements Serializable, Cloneable {
     private HotelContact contact;
     private HotelFacilities hotelFacilities;
     private HotelRoom hotelRoom;
-    private float price;
+    private Float price;
     private String imgUrl;
 
     public static final Hotel NULL_HOTEL = new Hotel();
