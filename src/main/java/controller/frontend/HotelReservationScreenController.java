@@ -65,7 +65,8 @@ public class HotelReservationScreenController implements Initializable, ScreenCo
     void cancel(ActionEvent event) {
         HotelRoom toUpdate = buildRoomToUpdate();
         model.getActiveHotel().setHotelRoom(toUpdate);
-        viewController.setScreen(ScreenUtils.HOTEL_LIST_SCREEN_ID);;
+        viewController.setScreen(ScreenUtils.HOTEL_LIST_SCREEN_ID);
+        fireConfirmationPopupWindow();
     }
 
     @FXML
@@ -132,5 +133,17 @@ public class HotelReservationScreenController implements Initializable, ScreenCo
         int days = Integer.parseInt(reservation_time.getText());
         float price = model.getActiveHotel().getPrice();
         total_cost_field.setText(String.format("%.2f zł", price * days));
+    }
+
+    private void fireConfirmationPopupWindow() {
+        try {
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(ScreenUtils.FINALIZE_TRANSACTION_SCREEN)));
+            Stage stage = new Stage();
+            stage.setTitle("Dokończ transakcję");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
