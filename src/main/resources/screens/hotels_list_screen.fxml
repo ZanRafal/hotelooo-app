@@ -11,7 +11,7 @@
             <Image url="@../images/app-logo.png" />
          </image>
       </ImageView>
-      <Button fx:id="back_to_search_button" layoutX="455.0" layoutY="35.0" mnemonicParsing="false" onAction="#goToSearchScreen" prefHeight="44.0" prefWidth="108.0" text="Powrót do wyszukiwarki" textAlignment="CENTER" wrapText="true" />
-      <ListView fx:id="items_list" layoutX="34.0" layoutY="129.0" onMouseClicked="#selectHotel" prefHeight="239.0" prefWidth="529.0" />
+      <Button fx:id="back_to_search_button" layoutX="465.0" layoutY="25.0" mnemonicParsing="false" onAction="#goToSearchScreen" prefHeight="44.0" prefWidth="108.0" text="Powrót do wyszukiwarki" textAlignment="CENTER" wrapText="true" />
+      <ListView fx:id="items_list" layoutX="34.0" layoutY="129.0" onMouseClicked="#selectHotel" prefHeight="239.0" prefWidth="539.0" />
    </children>
 </Pane>
