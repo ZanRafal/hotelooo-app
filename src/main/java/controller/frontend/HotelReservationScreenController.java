@@ -63,10 +63,13 @@ public class HotelReservationScreenController implements Initializable, ScreenCo
 
     @FXML
     void cancel(ActionEvent event) {
-        HotelRoom toUpdate = buildRoomToUpdate();
-        model.getActiveHotel().setHotelRoom(toUpdate);
-        viewController.setScreen(ScreenUtils.HOTEL_LIST_SCREEN_ID);
-        fireConfirmationPopupWindow();
+        if(!credentials_field.getText().isEmpty() && !phone_number_field.getText().isEmpty()) {
+            HotelRoom toUpdate = buildRoomToUpdate();
+            model.getActiveHotel().setHotelRoom(toUpdate);
+            viewController.setScreen(ScreenUtils.HOTEL_LIST_SCREEN_ID);
+            fireConfirmationPopupWindow();
+        } else
+            viewController.setScreen(ScreenUtils.HOTEL_LIST_SCREEN_ID);
     }
 
     @FXML
