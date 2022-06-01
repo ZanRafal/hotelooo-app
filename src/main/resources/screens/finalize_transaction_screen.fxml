@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="finalize_transaction_screen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="212.0" minWidth="217.0" prefHeight="212.0" prefWidth="368.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.frontend.FinalizeTransactionScreenController">
+   <children>
+      <Label fx:id="summary" alignment="CENTER" layoutX="44.0" layoutY="29.0" prefHeight="31.0" prefWidth="280.0" style="-fx-border-color: blue;" text="Dokończ rezerwację!" textOverrun="WORD_ELLIPSIS" />
+      <Pane fx:id="hotel_info_container" layoutX="44.0" layoutY="60.0" prefHeight="66.0" prefWidth="280.0" style="-fx-border-color: green;">
+         <children>
+            <Label fx:id="location_label" alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="135.0" text="Imię i nazwisko" textAlignment="CENTER" />
+            <Label fx:id="number_of_rooms_label" alignment="CENTER" layoutY="31.0" prefHeight="31.0" prefWidth="135.0" text="Numer telefonu" textAlignment="CENTER" />
+            <Label fx:id="credentials_field" alignment="CENTER" contentDisplay="CENTER" layoutX="143.0" layoutY="-1.0" prefHeight="31.0" prefWidth="135.0" text="Imię i nazwisko" textAlignment="CENTER" />
+            <Label fx:id="phone_number_field" alignment="CENTER" contentDisplay="CENTER" layoutX="143.0" layoutY="31.0" prefHeight="31.0" prefWidth="135.0" text="Imię i nazwisko" textAlignment="CENTER" />
+         </children></Pane>
+      <Button fx:id="back_to_list" layoutX="237.0" layoutY="160.0" mnemonicParsing="false" onAction="#goBackToList" prefHeight="25.0" prefWidth="78.0" text="anuluj" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="reservation_button" layoutX="63.0" layoutY="160.0" mnemonicParsing="false" onAction="#submitReservation" prefHeight="25.0" prefWidth="78.0" text="potwierdź" />
+      <Label layoutX="44.0" layoutY="122.0" prefHeight="31.0" prefWidth="193.0" text="Do anulowania transakcji pozostało" />
+      <Label fx:id="timer_field" alignment="CENTER" layoutX="241.0" layoutY="125.0" prefHeight="31.0" prefWidth="88.0" text="czas" />
+   </children>
+   <cursor>
+      <Cursor fx:constant="DEFAULT" />
+   </cursor>
+</Pane>
