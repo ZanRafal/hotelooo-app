@@ -4,17 +4,16 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
 import model.HotelDataModel;
 import model.objects.Hotel;
 import model.objects.LabelValueBuilder;
 import model.objects.Occupancy;
 import service.ApplicationModelInitializerService;
+import util.ImageUtils;
 import util.ScreenUtils;
 
 import java.net.URL;
@@ -35,6 +34,9 @@ public class HotelDetailsScreenController implements ScreenController, Initializ
 
     @FXML
     public Label facilities_field2;
+
+    @FXML
+    private ImageView photo_container;
 
     @FXML
     public Label facilities_field5;
@@ -64,9 +66,6 @@ public class HotelDetailsScreenController implements ScreenController, Initializ
     private Label hotel_name_field;
 
     @FXML
-    private ImageView app_logo;
-
-    @FXML
     private ListView<String> contacts_container;
 
     @Override
@@ -88,7 +87,6 @@ public class HotelDetailsScreenController implements ScreenController, Initializ
         viewController.setScreen(ScreenUtils.SEARCH_SCREEN_ID);
     }
 
-
     public void submitReservation(ActionEvent event) {
         if (model.getActiveHotel().getHotelRoom().getIsOccupied() != null) {
             if(model.getActiveHotel().getHotelRoom().getIsOccupied().equals(Occupancy.OCCUPIED)) {
@@ -99,7 +97,7 @@ public class HotelDetailsScreenController implements ScreenController, Initializ
     }
 
     private void initializeFieldsWithValues(Hotel hotel) {
-        this.hotel_name_field.setText("Hotel: " + hotel.getName()); //nazwa
+        this.hotel_name_field.setText("Hotel: " + hotel.getName());
         this.location_field.setText(hotel.getAddress().getCity() + ", " + hotel.getAddress().getStreetName());
         this.number_of_rooms_field.setText(hotel.getHotelFacilities().getNumberOfRooms().toString());
         this.number_of_stars_field.setText(buildStarsString(hotel.getHotelFacilities().getStars()));
