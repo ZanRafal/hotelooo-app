@@ -1,12 +1,11 @@
-package controller.frontend; /**
- * Sample Skeleton for 'hotels_list_screen.fxml' Controller Class
- */
+package controller.frontend;
 
+import controller.ChangeStepController;
 import controller.HotelController;
+import controller.ScreenController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -60,7 +59,8 @@ public class HotelsListScreenController implements Initializable, ScreenControll
     }
 
     @FXML
-    void selectHotel(ListView.EditEvent<Hotel> event) {
+    void selectHotel(MouseEvent event) {
+        nextStep();
     }
 
     @FXML
@@ -79,23 +79,19 @@ public class HotelsListScreenController implements Initializable, ScreenControll
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         List<ListItem> itemList = ListItemBuilder.buildItemList(model.getHotels());
         items_list.setItems(FXCollections.observableList(itemList));
         items_list.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-        items_list.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<ListItem>() {
-            @Override
-            public void changed(ObservableValue<? extends ListItem> observableValue, ListItem listItem, ListItem t1) {
-                Hotel currentHotel = items_list.getSelectionModel().getSelectedItem().getHotel();
-                model.setActiveHotel(currentHotel);
-                viewController.setScreen(ScreenUtils.HOTEL_DETAILS_SCREEN_ID);
-                System.out.println(model.getActiveHotel().toString());
-            }
+
+        items_list.getSelectionModel().selectedItemProperty().addListener((observableValue, listItem, t1) -> {
+            Hotel currentHotel = items_list.getSelectionModel().getSelectedItem().getHotel();
+            model.setActiveHotel(currentHotel);
         });
+
     }
 
-    private ListView<ListItem> ofListView(List<ListItem> list) {
-        ObservableList<ListItem> thisList = FXCollections.observableList(list);
-        return new ListView<>(thisList);
+    private void nextStep() {
+        viewController.loadScreen(ScreenUtils.HOTEL_DETAILS_SCREEN_ID, ScreenUtils.HOTEL_DETAILS_SCREEN);
+        viewController.setScreen(ScreenUtils.HOTEL_DETAILS_SCREEN_ID);
     }
 }
