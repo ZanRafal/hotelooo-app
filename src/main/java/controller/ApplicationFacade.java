@@ -1,6 +1,5 @@
 package controller;
 
-import controller.frontend.ScreensController;
 import service.ApplicationModelInitializerService;
 
 public class ApplicationFacade {
