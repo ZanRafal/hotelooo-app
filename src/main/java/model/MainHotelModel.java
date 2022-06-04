@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainHotelModel implements HotelModel {
-    private final DatabaseServiceImpl hotelService = new DatabaseServiceImpl();
-    private final HotelDataModel hotelDataModel = ApplicationModelInitializerService.getDataModel();
+        private final DatabaseServiceImpl hotelService = new DatabaseServiceImpl();
+        private final HotelDataModel hotelDataModel = ApplicationModelInitializerService.getDataModel();
 
     @Override
     public HotelDataModel getHotelDataModel() {
