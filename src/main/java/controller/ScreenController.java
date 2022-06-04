@@ -1,4 +1,6 @@
-package controller.frontend;
+package controller;
+
+import controller.ChangeStepController;
 
 //interfejs odpowiadający za ustawianie parenta dla danego ekranu
 //controlled screen
