@@ -1,5 +1,7 @@
 package controller.frontend;
 
+import controller.ChangeStepController;
+import controller.ScreenController;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -61,27 +63,18 @@ public class FinalizeTransactionScreenController implements Initializable, Scree
     }
 
     private void fireTimer() {
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Runnable updateView = new Runnable() {
-                    @Override
-                    public void run() {
-                            decrementCount();
-                    }
-                };
+        Thread thread = new Thread(() -> {
+            Runnable updateView = this::decrementCount;
 
-                while (true) {
-                    try {
-                        TimeUnit.SECONDS.sleep(1);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-
-                    Platform.runLater(updateView);
+            while (true) {
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-            }
 
+                Platform.runLater(updateView);
+            }
         });
         thread.start();
     }
