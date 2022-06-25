@@ -21,8 +21,10 @@ public class ScreensController extends Application {
         mainContainer.setScreen(ScreenUtils.SEARCH_SCREEN_ID);
 
         Group root = new Group();
+        stage.setResizable(false);
         root.getChildren().addAll(mainContainer);
         Scene scene = new Scene(root);
+        scene.getStylesheets().add("/screens/application_stylesheet.css");
         stage.setScene(scene);
         stage.setTitle("Hotelooo");
         stage.show();
