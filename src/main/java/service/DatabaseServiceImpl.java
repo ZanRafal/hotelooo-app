@@ -1,21 +1,19 @@
 package service;
 
-import lombok.extern.slf4j.Slf4j;
 import model.objects.Hotel;
 import util.JsonObjectReader;
 import util.JsonObjectWriter;
 
 import java.util.ArrayList;
 import java.util.List;
-@Slf4j
+
 public class DatabaseServiceImpl implements DatabaseService {
     private final JsonObjectReader objectReader = JsonObjectReader.getInstance();
     private final JsonObjectWriter objectWriter = JsonObjectWriter.getInstance();
 
-
     @Override
     public List<Hotel> getAllHotels() {
-        log.info("Retrieving all hotels from database");
+//        log.info("Retrieving all hotels from database");
         List<Hotel> result = new ArrayList<>();
 
         for(Hotel item : objectReader.readJsonObjects()) {
@@ -35,7 +33,7 @@ public class DatabaseServiceImpl implements DatabaseService {
 
     @Override
     public Hotel getHotelById(int hotelId) {
-        log.info("Retrieving hotel id no. {} from database", hotelId);
+//        log.info("Retrieving hotel id no. {} from database", hotelId);
         if(hotelId < 1) throw new IllegalArgumentException();
 
         List<Hotel> hotels = objectReader.readJsonObjects();
@@ -49,7 +47,7 @@ public class DatabaseServiceImpl implements DatabaseService {
 
     @Override
     public Hotel getHotelByName(String hotelName) {
-        log.info("Retrieving hotel with name: {} from database", hotelName);
+//        log.info("Retrieving hotel with name: {} from database", hotelName);
         if(hotelName.equals("")) {
             return Hotel.NULL_HOTEL;
         }
@@ -65,10 +63,8 @@ public class DatabaseServiceImpl implements DatabaseService {
     }
 
     @Override
-    //POPRAWIĆ MOŻE BYĆ OCH WIĘCEJ
-    //TODO
     public Hotel getHotelByLocation(String hotelLocation) {
-        log.info("Retrieving with specified location: {} from database", hotelLocation);
+//        log.info("Retrieving with specified location: {} from database", hotelLocation);
         if(hotelLocation.equals("")) {
             return Hotel.NULL_HOTEL;
         }
@@ -86,7 +82,7 @@ public class DatabaseServiceImpl implements DatabaseService {
     //TODO sprawdzić czy działa
     @Override
     public void updateAndSaveHotel(Hotel newHotel) {
-        log.info("Saving hotel id no. {} to database", newHotel.getId());
+//        log.info("Saving hotel id no. {} to database", newHotel.getId());
         List<Hotel> hotels = objectReader.readJsonObjects();
         for(Hotel hotel : hotels) {
             if(hotel.getId() == newHotel.getId()) {
