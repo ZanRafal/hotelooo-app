@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 
 public class FinalizeTransactionScreenController implements Initializable, ScreenController {
     private static final HotelDataModel model = ApplicationModelInitializerService.getDataModel();
-    private int count = 10;
+    private int count = 30;
     private ChangeStepController viewController;
 
     @FXML
