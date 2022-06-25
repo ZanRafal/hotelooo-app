@@ -26,11 +26,11 @@ public class LabelValueBuilder {
     private ArrayList<String> getNonFalseFacilities() {
         ArrayList<String> result = new ArrayList<>();
 
-        if (items.getIsBathroomInside()) result.add("Łazienka w pokoju");
+        if (items.getIsBathroomInside()) result.add("Lazienka w pokoju");
         else result.add("");
         if (items.getIsKitchenInside()) result.add("Kuchnia w pokoju");
         else result.add("");
-        if (items.getIsMaritalBed()) result.add("Łóżko małżeńskie");
+        if (items.getIsMaritalBed()) result.add("Lozko malzenskie");
         else result.add("");
         if (items.getIsParkingLot()) result.add("Parking");
         else result.add("");
