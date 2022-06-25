@@ -21,6 +21,7 @@ import model.HotelDataModel;
 import model.objects.*;
 import service.ApplicationModelInitializerService;
 import util.ScreenUtils;
+import validators.ReservationDetailsValidator;
 
 import java.net.URL;
 import java.util.*;
@@ -81,11 +82,19 @@ public class HotelReservationScreenController implements Initializable, ScreenCo
 
     @FXML
     void submit(ActionEvent event) {
-        HotelRoom toUpdate = buildRoomToUpdate();
-        toUpdate.setIsOccupied(Occupancy.OCCUPIED);
-        model.getActiveHotel().setHotelRoom(toUpdate);
-        modelController.onSaveHotelData(toUpdate);
-        viewController.setScreen(ScreenUtils.HOTEL_LIST_SCREEN_ID);
+        if(ReservationDetailsValidator.validReservationDetails(
+                credentials_field.getText(),
+                phone_number_field.getText(),
+                email_field.getText(),
+                number_of_people_field.getText(),
+                reservation_time.getText()))
+        {
+            HotelRoom toUpdate = buildRoomToUpdate();
+            toUpdate.setIsOccupied(Occupancy.OCCUPIED);
+            model.getActiveHotel().setHotelRoom(toUpdate);
+            modelController.onSaveHotelData(toUpdate);
+            viewController.setScreen(ScreenUtils.HOTEL_LIST_SCREEN_ID);
+        }
     }
 
     @Override
@@ -107,6 +116,7 @@ public class HotelReservationScreenController implements Initializable, ScreenCo
 
     private Client buildClient() {
         Map<String, String> valuesMap = splitCredentialsFromString();
+
 
         Contact contact = Contact.builder()
                 .phoneNumber(phone_number_field.getText())
