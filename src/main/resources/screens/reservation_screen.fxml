@@ -12,12 +12,12 @@
             <Image url="@../images/app-logo.png" />
          </image>
       </ImageView>
-      <Label fx:id="summary" alignment="CENTER" layoutX="76.0" layoutY="110.0" prefHeight="31.0" prefWidth="489.0" style="-fx-border-color: blue;" text="Podsumowanie" textOverrun="WORD_ELLIPSIS" />
-      <Pane fx:id="hotel_info_container" layoutX="76.0" layoutY="141.0" prefHeight="255.0" prefWidth="489.0" style="-fx-border-color: green;">
+      <Label fx:id="summary" alignment="CENTER" layoutX="76.0" layoutY="110.0" prefHeight="31.0" prefWidth="489.0" style="-fx-border-color: black;" text="Podsumowanie" textOverrun="WORD_ELLIPSIS" />
+      <Pane fx:id="hotel_info_container" layoutX="76.0" layoutY="141.0" prefHeight="255.0" prefWidth="489.0" style="-fx-border-color: black;">
          <children>
             <Label layoutX="16.0" layoutY="54.0" prefHeight="31.0" prefWidth="123.0" text="Numer telefonu" textAlignment="CENTER" />
             <Label layoutX="17.0" layoutY="206.0" prefHeight="31.0" prefWidth="135.0" text="Do zapłaty" textAlignment="CENTER" />
-            <Label fx:id="total_cost_field" alignment="CENTER" layoutX="225.0" layoutY="206.0" prefHeight="31.0" prefWidth="199.0" text="Do zapłaty" textAlignment="CENTER" />
+            <Label fx:id="total_cost_field" alignment="CENTER" layoutX="225.0" layoutY="206.0" prefHeight="31.0" prefWidth="199.0" textAlignment="CENTER" />
             <Label layoutX="14.0" layoutY="133.0" prefHeight="31.0" prefWidth="123.0" text="Liczba osób" textAlignment="CENTER" />
             <Label layoutX="17.0" layoutY="171.0" prefHeight="31.0" prefWidth="123.0" text="Okres zameldowania" textAlignment="CENTER" />
             <TextField fx:id="reservation_time" alignment="CENTER" layoutX="250.0" layoutY="174.0" prefHeight="25.0" prefWidth="72.0" />

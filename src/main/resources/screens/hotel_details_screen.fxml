@@ -21,32 +21,32 @@
          <image>
             <Image url="@../images/photo_not_found.jpg" />
          </image></ImageView>
-      <Label fx:id="hotel_name_field" alignment="CENTER" layoutX="254.0" layoutY="110.0" prefHeight="31.0" prefWidth="304.0" style="-fx-border-color: blue;" text="Nazwa hotelu" textOverrun="WORD_ELLIPSIS" />
-      <Pane fx:id="hotel_info_container" layoutX="254.0" layoutY="141.0" prefHeight="221.0" prefWidth="304.0" style="-fx-border-color: green;">
+      <Label fx:id="hotel_name_field" alignment="CENTER" layoutX="254.0" layoutY="110.0" prefHeight="31.0" prefWidth="304.0" style="-fx-border-color: black;" textOverrun="WORD_ELLIPSIS" />
+      <Pane fx:id="hotel_info_container" layoutX="254.0" layoutY="141.0" prefHeight="221.0" prefWidth="304.0" style="-fx-border-color: black;">
          <children>
-            <Label fx:id="location_label" alignment="CENTER" prefHeight="31.0" prefWidth="100.0" text="Lokalizacja:" textAlignment="CENTER" />
-            <Label fx:id="number_of_rooms_label" alignment="CENTER" layoutY="31.0" prefHeight="31.0" prefWidth="100.0" text="Liczba pokoi:" textAlignment="CENTER" />
-            <Label fx:id="number_of_stars_label" alignment="CENTER" layoutY="62.0" prefHeight="31.0" prefWidth="108.0" text="Liczba gwiazdek:" textAlignment="CENTER" />
+            <Label fx:id="location_label" prefHeight="31.0" prefWidth="100.0" style="-fx-label-padding: 5;" text="Lokalizacja:" textAlignment="CENTER" />
+            <Label fx:id="number_of_rooms_label" layoutY="31.0" prefHeight="31.0" prefWidth="100.0" style="-fx-padding: 5;" text="Liczba pokoi:" textAlignment="CENTER" />
+            <Label fx:id="number_of_stars_label" layoutY="62.0" prefHeight="31.0" prefWidth="108.0" style="-fx-padding: 5;" text="Liczba gwiazdek:" textAlignment="CENTER" />
             <Label fx:id="price_label" alignment="CENTER" layoutY="191.0" prefHeight="31.0" prefWidth="150.0" text="Cena za dobę" textAlignment="CENTER" />
             <Label fx:id="price_field" alignment="CENTER" layoutX="150.0" layoutY="191.0" prefHeight="31.0" prefWidth="150.0" textAlignment="CENTER" />
             <Pane layoutX="-1.0" layoutY="95.0" prefHeight="94.0" prefWidth="304.0">
                <children>
-                  <Label fx:id="facilities_field1" alignment="CENTER" layoutY="-1.0" prefHeight="31.0" prefWidth="150.0" text="null" textAlignment="CENTER" />
-                  <Label fx:id="facilities_field4" alignment="CENTER" layoutX="152.0" layoutY="-1.0" prefHeight="31.0" prefWidth="150.0" text="null" textAlignment="CENTER" />
-                  <Label fx:id="facilities_field2" alignment="CENTER" layoutY="30.0" prefHeight="31.0" prefWidth="150.0" text="null" textAlignment="CENTER" />
-                  <Label fx:id="facilities_field5" alignment="CENTER" layoutX="152.0" layoutY="30.0" prefHeight="31.0" prefWidth="150.0" text="null" textAlignment="CENTER" />
-                  <Label fx:id="facilities_field3" alignment="CENTER" layoutY="61.0" prefHeight="31.0" prefWidth="150.0" text="null" textAlignment="CENTER" />
-                  <Label fx:id="facilities_field6" alignment="CENTER" layoutX="152.0" layoutY="61.0" prefHeight="31.0" prefWidth="150.0" text="null" textAlignment="CENTER" />
+                  <Label fx:id="facilities_field1" alignment="CENTER" layoutY="-1.0" prefHeight="31.0" prefWidth="150.0" textAlignment="CENTER" />
+                  <Label fx:id="facilities_field4" alignment="CENTER" layoutX="152.0" layoutY="-1.0" prefHeight="31.0" prefWidth="150.0" textAlignment="CENTER" />
+                  <Label fx:id="facilities_field2" alignment="CENTER" layoutY="30.0" prefHeight="31.0" prefWidth="150.0" textAlignment="CENTER" />
+                  <Label fx:id="facilities_field5" alignment="CENTER" layoutX="152.0" layoutY="30.0" prefHeight="31.0" prefWidth="150.0" textAlignment="CENTER" />
+                  <Label fx:id="facilities_field3" alignment="CENTER" layoutY="61.0" prefHeight="31.0" prefWidth="150.0" textAlignment="CENTER" />
+                  <Label fx:id="facilities_field6" alignment="CENTER" layoutX="152.0" layoutY="61.0" prefHeight="31.0" prefWidth="150.0" textAlignment="CENTER" />
                </children>
             </Pane>
-            <Label fx:id="location_field" alignment="CENTER" layoutX="105.0" prefHeight="31.0" prefWidth="199.0" text="Lokalizacja" textAlignment="CENTER" />
-            <Label fx:id="number_of_rooms_field" alignment="CENTER" layoutX="105.0" layoutY="31.0" prefHeight="31.0" prefWidth="199.0" text="Liczba pokoi" textAlignment="CENTER" />
-            <Label fx:id="number_of_stars_field" alignment="CENTER" layoutX="105.0" layoutY="62.0" prefHeight="31.0" prefWidth="199.0" text="Liczba gwiazdek" textAlignment="CENTER" />
+            <Label fx:id="location_field" alignment="CENTER" layoutX="105.0" prefHeight="31.0" prefWidth="199.0" textAlignment="CENTER" />
+            <Label fx:id="number_of_rooms_field" alignment="CENTER" layoutX="105.0" layoutY="31.0" prefHeight="31.0" prefWidth="199.0" textAlignment="CENTER" />
+            <Label fx:id="number_of_stars_field" alignment="CENTER" layoutX="105.0" layoutY="62.0" prefHeight="31.0" prefWidth="199.0" textAlignment="CENTER" />
          </children></Pane>
-      <Label alignment="CENTER" layoutX="63.0" layoutY="241.0" prefHeight="31.0" prefWidth="191.0" style="-fx-border-color: blue;" text="Kontakt" textOverrun="WORD_ELLIPSIS" />
-      <ListView fx:id="contacts_container" layoutX="63.0" layoutY="270.0" prefHeight="123.0" prefWidth="191.0" style="-fx-border-color: pink;" />
+      <Label alignment="CENTER" layoutX="63.0" layoutY="241.0" prefHeight="31.0" prefWidth="191.0" style="-fx-border-color: black;" text="Kontakt" textOverrun="WORD_ELLIPSIS" />
+      <ListView fx:id="contacts_container" layoutX="63.0" layoutY="270.0" prefHeight="123.0" prefWidth="191.0" style="-fx-border-color: black;" />
       <Button fx:id="back_to_list" layoutX="434.0" layoutY="405.0" mnemonicParsing="false" onAction="#goBackToList" prefHeight="25.0" prefWidth="108.0" text="Powrót do listy" textAlignment="CENTER" wrapText="true" />
-      <Label fx:id="occupancy_field" alignment="CENTER" layoutX="254.0" layoutY="362.0" prefHeight="31.0" prefWidth="304.0" style="-fx-border-color: blue;" text="Nazwa hotelu" textOverrun="WORD_ELLIPSIS" />
+      <Label fx:id="occupancy_field" alignment="CENTER" layoutX="254.0" layoutY="362.0" prefHeight="31.0" prefWidth="304.0" style="-fx-border-color: black;" textOverrun="WORD_ELLIPSIS" />
    </children>
    <cursor>
       <Cursor fx:constant="DEFAULT" />
